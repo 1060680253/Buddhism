@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/action_bar_container"
+    style="@style/fill_fill"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/iv_back"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+        <ImageView
+            style="@style/wrap_wrap"
+            android:scaleType="center"
+            android:src="@drawable/back_gesture" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/wrap_wrap"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_actionbar_title"
+            android:layout_height="wrap_content"
+            android:layout_width="198dp"
+            android:gravity="center_horizontal"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/app_name"
+            android:textColor="@color/colorAccent"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_right"
+        android:orientation="horizontal"
+        android:gravity="center"
+        style="@style/wrap_fill"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" />
+
+</RelativeLayout>
