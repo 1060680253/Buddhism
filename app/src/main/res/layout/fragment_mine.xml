@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/backgroud"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+        <com.yuanming.buddhism.widget.RoundImageView
+            android:id="@+id/riv_user"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:src="@mipmap/ic_launcher"/>
+        <LinearLayout
+            style="@style/wrap_wrap"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/riv_user">
+            <TextView
+                style="@style/wrap_wrap"
+                android:text="道英"
+                android:textColor="@color/import_text"/>
+
+            <TextView
+                style="@style/wrap_wrap"
+                android:layout_marginTop="8dp"
+                android:text="简介：为了佛教，牺牲一切"
+                android:textColor="@color/normal_text"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="1dp"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/tv_collection"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textColor="@color/import_text"
+            android:gravity="center"
+            android:text="收藏（1）"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroud" />
+        <TextView
+            android:id="@+id/tv_counting"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/import_text"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="报数（2）"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroud" />
+        <TextView
+            android:layout_width="0dp"
+            android:textColor="@color/import_text"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="上传（4）"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的作品"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的修行"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroud">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:background="@drawable/edittext_reg_background"
+                android:layout_width="match_parent"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_centerVertical="true"
+                    android:text="念诵类型 :"
+                    android:textColor="@color/import_text"/>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/tv_counting_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_marginTop="1dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:background="@drawable/edittext_reg_background"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="咒语类型 :"
+                    android:textColor="@color/import_text"/>
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/colorAccent"
+                    android:text="系统" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="1dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:background="@drawable/edittext_reg_background"
+                android:layout_width="match_parent"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="念诵次数 :"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/import_text"/>
+
+                <EditText
+                    android:id="@+id/et_counts"
+                    android:layout_height="32dp"
+                    android:layout_width="128dp"
+                    android:paddingTop="0dp"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="0dp"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="输入次数"
+                    android:textColorHint="@color/secondary_text"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:padding="16dp"
+                android:background="@drawable/edittext_reg_background"
+                style="@style/fill_wrap"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="个人祈愿 :"
+                    android:textColor="@color/import_text"/>
+
+                <EditText
+                    android:id="@+id/et_pledge"
+                    android:layout_marginTop="12dp"
+                    android:padding="8dp"
+                    android:hint="每天当你许下善缘的时候，意味着所有参加公修的人们都在用所念诵的万一遍六字大明咒，共同为你祈祷。"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/secondary_text"
+                    android:background="@drawable/edittext_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"/>
+
+            </LinearLayout>
+
+            <com.dd.CircularProgressButton
+                android:id="@+id/btn_counting"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="37dp"
+                app:cpb_cornerRadius="4dp"
+                app:cpb_iconComplete="@drawable/ic_action_accept"
+                app:cpb_iconError="@drawable/ic_action_cancel"
+                app:cpb_textIdle="确认报数"
+                app:cpb_textError="错误"
+                app:cpb_textComplete="完成"
+                app:cpb_colorIndicator="@color/colorAccent"
+                app:cpb_selectorIdle="@drawable/idle_state_selector"
+                app:cpb_selectorComplete="@drawable/complete_state_selector"
+                app:cpb_selectorError="@drawable/error_state_selector"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

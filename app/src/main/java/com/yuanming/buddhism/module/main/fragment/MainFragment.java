@@ -1,5 +1,6 @@
-package com.yuanming.buddhism;
+package com.yuanming.buddhism.module.main.fragment;
 
+import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 
 /**
