@@ -10,7 +10,8 @@ import com.yuanming.buddhism.module.mine.fragment.CountFragment;
 
 public enum CommonPage {
 
-    COUNTS(1, R.string.actionbar_title_counts, CountFragment.class);
+
+    COUNTS(1, R.string.actionbar_title_counts,CountFragment.class);
 
     private int title;
     private Class<?> clz;

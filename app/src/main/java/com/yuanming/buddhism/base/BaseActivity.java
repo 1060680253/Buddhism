@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
@@ -81,7 +82,6 @@ public abstract class BaseActivity extends AppCompatActivity implements DialogCo
                 mActionBar.hide();
             }
         }
-//        setSwipeBackEnable(isNeedSwipBack());
         initView();
         initData();
         _isVisible = true;
@@ -153,7 +153,17 @@ public abstract class BaseActivity extends AppCompatActivity implements DialogCo
     }
 
     protected void initRightArea(LinearLayout contanier){
+        if(getRightTextResouce()!=-1){
+            TextView textView = new TextView(this);
+            textView.setText(getRightTextResouce());
+            textView.setTextColor(ContextCompat.getColor(this,R.color.colorAccent));
+            textView.setTextSize(17);
+            contanier.addView(textView);
+        }
+    }
 
+    protected int getRightTextResouce(){
+        return -1;
     }
 
     protected boolean hasShareButton(){

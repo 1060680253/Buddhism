@@ -3,4 +3,5 @@
     <string name="loading">加载中...</string>
     <string name="loading_no_more">已经到底了</string>
     <string name="actionbar_title_counts">恭请报数</string>
+    <string name="right_title_counts_log">查看记录</string>
 </resources>

@@ -81,12 +81,47 @@
                     android:layout_height="32dp"
                     android:layout_width="128dp"
                     android:paddingTop="0dp"
+                    android:inputType="number"
                     android:layout_centerVertical="true"
                     android:paddingBottom="0dp"
                     android:paddingRight="8dp"
                     android:paddingLeft="8dp"
                     android:background="@drawable/edittext_background"
                     android:hint="输入次数"
+                    android:textColorHint="@color/secondary_text"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_marginTop="1dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:background="@drawable/edittext_reg_background"
+                android:layout_width="match_parent"
+                android:layout_height="52dp">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="念诵时间 :"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/import_text"/>
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_height="32dp"
+                    android:layout_width="128dp"
+                    android:paddingTop="0dp"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="0dp"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext_background"
+                    android:hint="输入时间"
                     android:textColorHint="@color/secondary_text"
                     android:textSize="14sp"
                     android:layout_alignParentRight="true"

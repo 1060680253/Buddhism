@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.TextView;
 
+import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.constant.Constants;
 
@@ -47,13 +51,25 @@ public class CommonActivity extends BaseActivity {
                     + mPageValue);
         }
         mTvActionTitle.setText(page.getTitle());
+        if(page.getValue()==1){
+            getRightContiner().setVisibility(View.VISIBLE);
+            TextView textView = new TextView(this);
+            textView.setText(R.string.right_title_counts_log);
+            textView.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+            textView.setTextSize(17);
+            getRightContiner().addView(textView);
+            getRightContiner().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
+                }
+            });
+        }
         try {
             Fragment fragment = (Fragment) page.getClz().newInstance();
             if (mBundle != null) {
                 fragment.setArguments(mBundle);
             }
-
             addFramentMethod(fragment);
             mFragment = new WeakReference<>(fragment);
         } catch (Exception e) {
