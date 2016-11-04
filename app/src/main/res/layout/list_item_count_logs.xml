@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_height="64dp"
+    android:weightSum="7"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:text="2016-06-08"
+        android:textColor="@color/import_text"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="1px"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="52dp"
+        android:background="@color/segment" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:text="尼玛石"
+        android:textColor="@color/import_text"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="52dp"
+        android:background="@color/segment" />
+
+    <TextView
+        android:id="@+id/tv_counts"
+        android:text="1次"
+        android:textColor="@color/import_text"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="52dp"
+        android:background="@color/segment" />
+
+    <TextView
+        android:id="@+id/tv_pledge"
+        android:text="开开心哈撒好就是大概啥时打哈"
+        android:textColor="@color/import_text"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_weight="3"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

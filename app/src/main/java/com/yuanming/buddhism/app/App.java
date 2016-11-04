@@ -21,12 +21,12 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-        if (BuildConfig.DEBUG) {
-            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-                    .detectAll() .penaltyLog() .build());
-            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-                    .detectAll() .penaltyLog() .build());
-        }
+//        if (BuildConfig.DEBUG) {
+//            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+//                    .detectAll() .penaltyLog() .build());
+//            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+//                    .detectAll() .penaltyLog() .build());
+//        }
         super.onCreate();
         instance = this;
     }

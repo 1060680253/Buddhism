@@ -1,5 +1,6 @@
 package com.yuanming.buddhism.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,7 +28,7 @@ public abstract class BaseFragment<T extends BasePresenterInterf> extends Fragme
     private Unbinder mUnbinder;
     protected T mPresenter;
     protected LayoutInflater mInflater;
-
+    protected Context mContext;
     protected abstract int getLayoutId();
     @Override
     @Nullable
@@ -43,6 +44,7 @@ public abstract class BaseFragment<T extends BasePresenterInterf> extends Fragme
             }
         }
         View mView = inflater.inflate(getLayoutId(), container, false);
+        mContext = mView.getContext();
         inJectChildView(mView);
         mUnbinder = ButterKnife.bind(this, mView);
         initView(mView);

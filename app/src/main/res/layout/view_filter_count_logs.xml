@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+    <LinearLayout
+        style="@style/fill_wrap"
+        >
+        <TextView
+            style="@style/wrap_wrap"
+            android:text="日期： "
+            android:textColor="@color/import_text"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/start_date"
+            style="@style/wrap_wrap"
+            android:hint="起始日期"
+            android:background="@drawable/edittext_background"
+            android:padding="8dp"
+            android:textColorHint="@color/secondary_text"
+            android:textColor="@color/import_text"
+            android:textSize="16sp"/>
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:text="   ——    "
+            android:textColor="@color/import_text"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/end_date"
+            style="@style/wrap_wrap"
+            android:hint="终止日期"
+            android:background="@drawable/edittext_background"
+            android:padding="8dp"
+            android:textColorHint="@color/secondary_text"
+            android:textColor="@color/import_text"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="32dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:background="@drawable/red_background" />
+</LinearLayout>

@@ -61,7 +61,7 @@ public class CommonActivity extends BaseActivity {
             getRightContiner().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    CommonActivity.startActivity(CommonActivity.this,CommonPage.COUNTLOGS);
                 }
             });
         }

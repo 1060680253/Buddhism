@@ -90,6 +90,7 @@ public abstract class BaseRecycleFragment
             }
         });
         initRecyclerView(view);
+        onRefresh();
     }
 
     protected boolean isNeedRefresh(){

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/fill_fill">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:src="@mipmap/ic_launcher" />
+    <com.baiiu.filter.DropDownMenu
+        android:id="@+id/dropDownMenu"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@id/mFilterContentView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.design.widget.AppBarLayout
+                style="@style/fill_wrap">
+            <LinearLayout
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:layout_height="48dp"
+                android:background="@color/colorAccent"
+                android:weightSum="7"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:text="念诵时间"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="32dp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:text="念诵类型"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="32dp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_counts"
+                    android:text="念诵次数"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="32dp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_pledge"
+                    android:text="个人祈愿"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            </android.support.design.widget.AppBarLayout>
+            <FrameLayout
+                android:id="@+id/container"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                style="@style/fill_fill"/>
+        </android.support.design.widget.CoordinatorLayout>
+    </com.baiiu.filter.DropDownMenu>
+</LinearLayout>

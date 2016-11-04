@@ -1,1 +1,1 @@
-include ':app', ':bottomtab'
+include ':app', ':bottomtab', ':filter-lib'

@@ -3,5 +3,8 @@
     <string name="loading">加载中...</string>
     <string name="loading_no_more">已经到底了</string>
     <string name="actionbar_title_counts">恭请报数</string>
+    <string name="actionbar_title_count_log">报数记录</string>
     <string name="right_title_counts_log">查看记录</string>
+    <string name="counts_log_count" formatted="true">%1$d次</string>
+    <string name="hello">String.xml字符转义拼接: 我叫 %1$s,今年 %2$d岁了,身高 %3$f米。</string>
 </resources>
