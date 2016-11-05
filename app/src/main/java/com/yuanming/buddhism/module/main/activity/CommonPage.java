@@ -1,6 +1,7 @@
 package com.yuanming.buddhism.module.main.activity;
 
 import com.yuanming.buddhism.R;
+import com.yuanming.buddhism.module.mine.fragment.CollapseFragment;
 import com.yuanming.buddhism.module.mine.fragment.CountFragment;
 import com.yuanming.buddhism.module.mine.fragment.CountLogsFragment;
 import com.yuanming.buddhism.module.mine.fragment.GenCountLogsFragment;
@@ -14,7 +15,8 @@ public enum CommonPage {
 
 
     COUNTS(1, R.string.actionbar_title_counts,CountFragment.class),
-    COUNTLOGS(2, R.string.actionbar_title_count_log, GenCountLogsFragment.class);
+    COUNTLOGS(2, R.string.actionbar_title_count_log, GenCountLogsFragment.class),
+    COLLAPSE(3, R.string.actionbar_title_count_log, CollapseFragment.class);
 
     private int title;
     private Class<?> clz;

@@ -1,7 +1,6 @@
 package com.yuanming.buddhism.module.mine.fragment;
 
 import android.view.View;
-import android.widget.TextView;
 
 import com.baiiu.filter.DropDownMenu;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;

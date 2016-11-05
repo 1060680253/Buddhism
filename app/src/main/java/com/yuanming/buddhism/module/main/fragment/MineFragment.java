@@ -37,6 +37,7 @@ public class MineFragment extends BaseFragment {
             case R.id.riv_user:
                 break;
             case R.id.tv_collection:
+                CommonActivity.startActivity(view.getContext(),CommonPage.COLLAPSE);
                 break;
             case R.id.tv_counting:
                 CommonActivity.startActivity(view.getContext(), CommonPage.COUNTS);

@@ -75,6 +75,18 @@ public class CountLog extends BaseEntity {
         countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
         countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
         countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
         return countLogs;
     }
 }
