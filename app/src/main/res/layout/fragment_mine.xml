@@ -1,103 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fill_fill">
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@color/backgroud"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="#71262A"
         android:padding="16dp">
         <com.yuanming.buddhism.widget.RoundImageView
+            android:layout_marginTop="48dp"
             android:id="@+id/riv_user"
+            android:layout_centerHorizontal="true"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:src="@mipmap/ic_launcher"/>
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_1"
             style="@style/wrap_wrap"
-            android:layout_marginLeft="16dp"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/riv_user">
-            <TextView
-                style="@style/wrap_wrap"
-                android:text="道英"
-                android:textColor="@color/import_text"/>
+            android:layout_marginTop="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/riv_user"
+            android:text="道英大师兄 >"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:src="@drawable/shezhi"/>
+
+        <LinearLayout
+            android:layout_width="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:background="@drawable/round_yellow">
 
             <TextView
                 style="@style/wrap_wrap"
+                android:textColor="#71262A"
+                android:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/tv_1"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="1"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_marginTop="12dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="关注"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
                 android:layout_marginTop="8dp"
-                android:text="简介：为了佛教，牺牲一切"
-                android:textColor="@color/normal_text"/>
+                android:layout_marginBottom="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="12"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_marginTop="12dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="佛友"
+                    android:textColor="@color/white"
+                    android:id="@+id/textView" />
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="1"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:layout_marginTop="12dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/riv_user"
+                    android:text="赞数"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginTop="1dp"
-        android:layout_height="64dp"
+        android:layout_height="48dp"
         android:background="@color/white"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <TextView
             android:id="@+id/tv_collection"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:drawableTop="@drawable/make_integral_money"
             android:layout_height="match_parent"
+            android:drawablePadding="2dp"
             android:textColor="@color/import_text"
             android:gravity="center"
-            android:text="收藏（1）"/>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/backgroud" />
-        <TextView
-            android:id="@+id/tv_counting"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textColor="@color/import_text"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="报数（2）"/>
+            android:text="收藏"/>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/backgroud" />
         <TextView
             android:layout_width="0dp"
-            android:textColor="@color/import_text"
             android:layout_weight="1"
+            android:drawableTop="@drawable/make_integral_money"
             android:layout_height="match_parent"
+            android:drawablePadding="2dp"
+            android:textColor="@color/import_text"
             android:gravity="center"
-            android:text="上传（4）"/>
+            android:text="消息"/>
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="1dp"
-        android:paddingLeft="16dp"
-        android:background="@color/white">
-
-        <TextView
-            style="@style/wrap_wrap"
-            android:layout_centerVertical="true"
-            android:text="我的作品"
-            android:textColor="@color/import_text"/>
-
-        <ImageView
-            style="@style/wrap_wrap"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/tiaozhuan"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="1dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:paddingLeft="16dp"
         android:background="@color/white">
 
@@ -114,4 +188,89 @@
             android:src="@drawable/tiaozhuan"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的活动"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的动态"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的收藏"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="我的好友"
+            android:textColor="@color/import_text"/>
+
+        <ImageView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
 </LinearLayout>
+</ScrollView>
