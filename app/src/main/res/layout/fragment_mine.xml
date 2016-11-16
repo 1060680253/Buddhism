@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#71262A"
-        android:padding="16dp">
+        android:paddingBottom="20dp">
         <com.yuanming.buddhism.widget.RoundImageView
             android:layout_marginTop="48dp"
             android:id="@+id/riv_user"
@@ -29,9 +29,14 @@
 
         <ImageView
             style="@style/wrap_wrap"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/shezhi"/>
 
         <LinearLayout
+            android:id="@+id/ll_add"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:layout_width="32dp"
             android:layout_alignParentRight="true"
             android:layout_height="32dp"
@@ -44,6 +49,60 @@
                 android:text="+" />
 
         </LinearLayout>
+
+
+        <LinearLayout
+        android:layout_toLeftOf="@+id/ll_add"
+        android:layout_marginRight="8dp"
+            android:layout_marginTop="12dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:background="@drawable/round_yellow">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:textColor="#71262A"
+            android:text="活动" />
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:background="@drawable/round_yellow">
+
+            <TextView
+                style="@style/wrap_wrap"
+                android:textColor="#71262A"
+                android:text="视频" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+            android:layout_below="@+id/ll_add"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:background="@drawable/round_yellow">
+
+            <TextView
+                style="@style/wrap_wrap"
+                android:textColor="#71262A"
+                android:text="音乐" />
+
+        </LinearLayout>
+
+
+
 
         <LinearLayout
             android:layout_below="@+id/tv_1"
