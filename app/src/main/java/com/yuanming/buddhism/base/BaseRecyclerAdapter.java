@@ -7,11 +7,12 @@ import android.view.View;
 
 import com.yuanming.buddhism.interf.BasePresenterInterf;
 import com.yuanming.buddhism.interf.RecyclerItemClickListener;
+import com.yuanming.buddhism.widget.recycler.RecyclerViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseRecyclerAdapter<T extends BaseEntity> extends RecyclerView.Adapter<BaseRecyclerViewHolder>{
+public abstract class BaseRecyclerAdapter<T extends BaseEntity> extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     protected Context mContext;
     protected List<T> mList =new ArrayList<>();
     protected LayoutInflater mInflater;
@@ -56,7 +57,7 @@ public abstract class BaseRecyclerAdapter<T extends BaseEntity> extends Recycler
     }
 
     @Override
-    public void onBindViewHolder(BaseRecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if(mItemClickListener!=null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -68,10 +69,17 @@ public abstract class BaseRecyclerAdapter<T extends BaseEntity> extends Recycler
         onBindViewHolders(holder,position);
     }
 
-    protected abstract void onBindViewHolders(BaseRecyclerViewHolder holder, final int position);
+    protected abstract void onBindViewHolders(RecyclerView.ViewHolder holder, final int position);
 
+    protected RecyclerView mRecyclerView;
+    protected int mAdapterPosition = 0;
     @Override
-    public void onViewDetachedFromWindow(BaseRecyclerViewHolder holder) {
-        super.onViewDetachedFromWindow(holder);
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        mAdapterPosition = RecyclerViewUtils.getAdapterPosition(mRecyclerView, holder);
+    }
+
+    public int getAdapterPosition() {
+        return mAdapterPosition;
     }
 }

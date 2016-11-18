@@ -5,6 +5,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -143,10 +144,10 @@ public abstract class BaseRecycleFragment
     protected abstract T getAdapter(); //这里初始化 adapter
 
 
-    protected GridLayoutManager getLayoutManager(View view) {
+    private RecyclerView.LayoutManager manager;
+    protected RecyclerView.LayoutManager getLayoutManager() {
         if(manager==null){
-            manager = new GridLayoutManager(view.getContext(),getLineNum());
-            manager.setOrientation(LinearLayoutManager.VERTICAL);
+            manager = new StaggeredGridLayoutManager(getLineNum(), StaggeredGridLayoutManager.VERTICAL);
         }
         return manager;
     }
@@ -154,13 +155,12 @@ public abstract class BaseRecycleFragment
     protected int getLineNum(){
         return 1;
     }
-    private GridLayoutManager manager;
     private void initRecyclerView(final View view) {
         mAdapter = getAdapter();
         mAdapter.setOnItemClickListener(this);
         HeaderAndFooterRecyclerViewAdapter headAdapter = new HeaderAndFooterRecyclerViewAdapter(mAdapter);
         mRecyclerView.setAdapter(headAdapter);
-        mRecyclerView.setLayoutManager(getLayoutManager(view));
+        mRecyclerView.setLayoutManager(getLayoutManager());
         //绑定能添加头尾View的adapter后 检查View返回 添加
         if (getHeadView() != null) {
             RecyclerViewUtils.addHearView(mRecyclerView, getHeadView());
@@ -178,14 +178,12 @@ public abstract class BaseRecycleFragment
                 }
                 scrollChange();
                 if (RecyclerView.SCROLL_STATE_IDLE == newState) {
-                    //滑动停止
-                    int lastVisiblePosition = getLayoutManager(view).findLastVisibleItemPosition();
-                    if(lastVisiblePosition >= getLayoutManager(view).getItemCount() - 1&&mState!=STATE_LOADMORE&&mState!=STATE_NOMORE&&mState!=STATE_REFRESH){
+                    int size = (int) (mAdapter.getItemCount() * 0.8f);
+                    if (mAdapter.getAdapterPosition() >= --size && mState!=STATE_LOADMORE&&mState!=STATE_NOMORE&&mState!=STATE_REFRESH) {
                         mCurrentPage++;
                         mState = STATE_LOADMORE;
                         mFooterView.setState(LoadingFooter.STATE_LOAD_MORE);
                         requestData();
-
                     }
                 } else if (RecyclerView.SCROLL_STATE_DRAGGING == newState) {
                     //用户正在滑动
