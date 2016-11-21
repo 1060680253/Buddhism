@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.yuanming.buddhism.interf.BasePresenterInterf;
 import com.yuanming.buddhism.interf.RecyclerItemClickListener;
 import com.yuanming.buddhism.widget.recycler.RecyclerViewUtils;
 
@@ -32,9 +31,10 @@ public abstract class BaseRecyclerAdapter<T extends BaseEntity> extends Recycler
         notifyDataSetChanged();
     }
 
-    public BaseRecyclerAdapter(Context context) {
-        this.mContext=context;
-        mInflater = LayoutInflater.from(context);
+    public BaseRecyclerAdapter(RecyclerView context) {
+        this.mRecyclerView=context;
+        this.mContext = context.getContext();
+        mInflater = LayoutInflater.from(context.getContext());
     }
 
 

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuanming.buddhism.interf.BasePresenterInterf;
 import com.yuanming.buddhism.interf.BaseView;
 import com.yuanming.buddhism.interf.DialogControl;
 import com.yuanming.buddhism.util.TDevice;
@@ -23,12 +22,11 @@ import butterknife.Unbinder;
 /**
  * Fragment基类.
  */
-public abstract class BaseFragment<T extends BasePresenterInterf> extends Fragment{
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment{
 
     private Unbinder mUnbinder;
     protected T mPresenter;
     protected LayoutInflater mInflater;
-    protected Context mContext;
     protected View mView;
     protected abstract int getLayoutId();
     @Override

@@ -1,6 +1,5 @@
 package com.yuanming.buddhism.module.mine.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import butterknife.ButterKnife;
 
 public class CountLogsAdapter extends BaseRecyclerAdapter<CountLog> {
 
-    public CountLogsAdapter(Context context) {
+    public CountLogsAdapter(RecyclerView context) {
         super(context);
     }
 

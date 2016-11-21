@@ -18,6 +18,6 @@ package com.yuanming.buddhism.interf;
 
 public interface BaseView<T> {
 
-    void setPresenter(T presenter);
+
 
 }
