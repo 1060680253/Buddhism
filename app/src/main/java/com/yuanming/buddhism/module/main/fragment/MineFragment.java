@@ -35,13 +35,17 @@ public class MineFragment extends SwipeRefreshFragment {
         onSuccess(null);
     }
 
-    @OnClick({R.id.riv_user, R.id.tv_collection})
+    @OnClick({R.id.riv_user, R.id.tv_collection,R.id.iv_setting})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.riv_user:
+                CommonActivity.startActivity(view.getContext(),CommonPage.MINEMSG);
                 break;
             case R.id.tv_collection:
                 CommonActivity.startActivity(view.getContext(),CommonPage.COLLAPSE);
+                break;
+            case R.id.iv_setting:
+                CommonActivity.startActivity(view.getContext(),CommonPage.SETTING);
                 break;
         }
     }

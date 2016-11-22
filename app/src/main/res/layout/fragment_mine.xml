@@ -28,22 +28,17 @@
             android:textColor="@color/white"/>
 
         <ImageView
-            style="@style/wrap_wrap"
+            android:id="@+id/iv_setting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/shezhi"/>
 
-        <LinearLayout
-            android:layout_width="32dp"
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_alignParentRight="true"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:background="@drawable/round_yellow">
+            android:src="@mipmap/btn_qrcode"/>
 
-            <TextView
-                style="@style/wrap_wrap"
-                android:textColor="#71262A"
-                android:text="+" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_below="@+id/tv_1"
@@ -71,7 +66,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/riv_user"
-                    android:text="关注"
+                    android:text="功德"
                     android:textColor="@color/white"/>
             </LinearLayout>
             <View
@@ -99,7 +94,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/riv_user"
-                    android:text="佛友"
+                    android:text="修行值"
                     android:textColor="@color/white"
                     android:id="@+id/textView" />
             </LinearLayout>
@@ -129,7 +124,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/riv_user"
-                    android:text="赞数"
+                    android:text="等级"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
@@ -141,30 +136,41 @@
         android:layout_height="48dp"
         android:background="@color/white"
         android:weightSum="2">
-
-        <TextView
-            android:id="@+id/tv_collection"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/make_integral_money"
-            android:layout_height="match_parent"
-            android:drawablePadding="2dp"
-            android:textColor="@color/import_text"
             android:gravity="center"
-            android:text="收藏"/>
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/wrap_wrap"
+                android:src="@drawable/make_integral_money" />
+            <TextView
+                android:id="@+id/tv_collection"
+                style="@style/wrap_wrap"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/import_text"
+                android:text="收藏"/>
+        </LinearLayout>
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/backgroud" />
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/make_integral_money"
-            android:layout_height="match_parent"
-            android:drawablePadding="2dp"
-            android:textColor="@color/import_text"
             android:gravity="center"
-            android:text="消息"/>
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/wrap_wrap"
+                android:src="@drawable/make_integral_money" />
+            <TextView
+                style="@style/wrap_wrap"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/import_text"
+                android:text="消息"/>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -177,6 +183,9 @@
 
         <TextView
             style="@style/wrap_wrap"
+            android:drawableLeft="@drawable/make_integral_money"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
             android:layout_centerVertical="true"
             android:text="我的修行"
             android:textColor="@color/import_text"/>
@@ -198,6 +207,9 @@
 
         <TextView
             style="@style/wrap_wrap"
+            android:drawableLeft="@drawable/make_integral_money"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
             android:layout_centerVertical="true"
             android:text="我的活动"
             android:textColor="@color/import_text"/>
@@ -219,6 +231,9 @@
 
         <TextView
             style="@style/wrap_wrap"
+            android:drawableLeft="@drawable/make_integral_money"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
             android:layout_centerVertical="true"
             android:text="我的动态"
             android:textColor="@color/import_text"/>
@@ -239,6 +254,9 @@
 
         <TextView
             style="@style/wrap_wrap"
+            android:drawableLeft="@drawable/make_integral_money"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
             android:layout_centerVertical="true"
             android:text="我的收藏"
             android:textColor="@color/import_text"/>
@@ -259,6 +277,9 @@
 
         <TextView
             style="@style/wrap_wrap"
+            android:drawableLeft="@drawable/make_integral_money"
+            android:gravity="center_vertical"
+            android:drawablePadding="6dp"
             android:layout_centerVertical="true"
             android:text="我的好友"
             android:textColor="@color/import_text"/>
