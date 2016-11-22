@@ -39,7 +39,11 @@ public abstract class SwipeRefreshFragment<T extends BasePresenter,E extends Bas
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
-        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+        if(isShowLoadingLayout()){
+            mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+        }else{
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        }
         mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +51,10 @@ public abstract class SwipeRefreshFragment<T extends BasePresenter,E extends Bas
                 requestData();
             }
         });
+    }
+
+    protected boolean isShowLoadingLayout(){
+        return true;
     }
 
     @Override

@@ -31,6 +31,11 @@ public class MineFragment extends SwipeRefreshFragment {
     }
 
     @Override
+    protected boolean isShowLoadingLayout() {
+        return false;
+    }
+
+    @Override
     protected void requestData() {
         onSuccess(null);
     }
