@@ -2,15 +2,12 @@ package com.yuanming.buddhism.base;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.yuanming.buddhism.R;
-import com.yuanming.buddhism.interf.BasePresenterInterf;
 import com.yuanming.buddhism.interf.HttpRequestListener;
 import com.yuanming.buddhism.interf.RecyclerItemClickListener;
 import com.yuanming.buddhism.util.TDevice;
@@ -32,7 +29,7 @@ import butterknife.BindView;
  * 所以：模板方法的基类只提供通用功能和确定骨架，而不应该决定逻辑跳转等具体子类的功能
  */
 public abstract class BaseRecycleFragment
-        <T extends BaseRecyclerAdapter, K_parent extends BaseEntity,K_son extends BaseEntity,T_presenter extends BasePresenterInterf> extends BaseLazyFragment<T_presenter> implements SwipeRefreshLayout.OnRefreshListener,HttpRequestListener<K_parent>,RecyclerItemClickListener{
+        <T extends BaseRecyclerAdapter, K_parent extends BaseEntity,K_son extends BaseEntity,T_presenter extends BasePresenter> extends BaseLazyFragment<T_presenter> implements SwipeRefreshLayout.OnRefreshListener,HttpRequestListener<K_parent>,RecyclerItemClickListener{
     public static final int STATE_NONE = 0; //无状态
     public static final int STATE_REFRESH = 1; //刷新状态
     public static final int STATE_LOADMORE = 2; //加载 还有更多状态
@@ -45,9 +42,8 @@ public abstract class BaseRecycleFragment
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
-    @BindView(R.id.container)
-    RelativeLayout container;
     protected T mAdapter;
+    public static final int STATE_ERROR = 4; //加载，没有更多状态
     //能显示三种状态的 footView
     protected LoadingFooter mFooterView;
 
@@ -143,10 +139,10 @@ public abstract class BaseRecycleFragment
     protected abstract T getAdapter(); //这里初始化 adapter
 
 
-    protected GridLayoutManager getLayoutManager(View view) {
+    private RecyclerView.LayoutManager manager;
+    protected RecyclerView.LayoutManager getLayoutManager() {
         if(manager==null){
-            manager = new GridLayoutManager(view.getContext(),getLineNum());
-            manager.setOrientation(LinearLayoutManager.VERTICAL);
+            manager = new StaggeredGridLayoutManager(getLineNum(), StaggeredGridLayoutManager.VERTICAL);
         }
         return manager;
     }
@@ -154,13 +150,12 @@ public abstract class BaseRecycleFragment
     protected int getLineNum(){
         return 1;
     }
-    private GridLayoutManager manager;
     private void initRecyclerView(final View view) {
         mAdapter = getAdapter();
         mAdapter.setOnItemClickListener(this);
         HeaderAndFooterRecyclerViewAdapter headAdapter = new HeaderAndFooterRecyclerViewAdapter(mAdapter);
         mRecyclerView.setAdapter(headAdapter);
-        mRecyclerView.setLayoutManager(getLayoutManager(view));
+        mRecyclerView.setLayoutManager(getLayoutManager());
         //绑定能添加头尾View的adapter后 检查View返回 添加
         if (getHeadView() != null) {
             RecyclerViewUtils.addHearView(mRecyclerView, getHeadView());
@@ -178,14 +173,12 @@ public abstract class BaseRecycleFragment
                 }
                 scrollChange();
                 if (RecyclerView.SCROLL_STATE_IDLE == newState) {
-                    //滑动停止
-                    int lastVisiblePosition = getLayoutManager(view).findLastVisibleItemPosition();
-                    if(lastVisiblePosition >= getLayoutManager(view).getItemCount() - 1&&mState!=STATE_LOADMORE&&mState!=STATE_NOMORE&&mState!=STATE_REFRESH){
+                    int size = (int) (mAdapter.getItemCount() * 0.8f);
+                    if (mAdapter.getAdapterPosition() >= --size && mState!=STATE_LOADMORE&&mState!=STATE_NOMORE&&mState!=STATE_REFRESH) {
                         mCurrentPage++;
                         mState = STATE_LOADMORE;
                         mFooterView.setState(LoadingFooter.STATE_LOAD_MORE);
                         requestData();
-
                     }
                 } else if (RecyclerView.SCROLL_STATE_DRAGGING == newState) {
                     //用户正在滑动
@@ -202,15 +195,20 @@ public abstract class BaseRecycleFragment
 
     }
 
+    protected boolean isShowRefresh(){
+        return true;
+    }
+
     @Override
     public void onLazyLoad() {
-        if (requestDataIfViewCreated()) {
+        if(isShowRefresh()){
             mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-            mState = STATE_NONE;
-            requestData();
-        } else {
+        }else{
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+            showWaitDialog();
         }
+        mState = STATE_NONE;
+        requestData();
     }
 
     public void onRefresh() {
@@ -224,13 +222,6 @@ public abstract class BaseRecycleFragment
         mCurrentPage = 0;
         mState = STATE_REFRESH;
         requestData();
-    }
-
-
-    public void backTop(){
-        if(mRecyclerView!=null){
-            mRecyclerView.smoothScrollToPosition(0);
-        }
     }
 
     public void listEmptyView() {
@@ -329,19 +320,28 @@ public abstract class BaseRecycleFragment
     @Override
     public void onError(int state,String error) {
         if(isAdded()&&isVisible()){
-            TDevice.showSnackBar(container, error);
+            TDevice.showSnackBar(mView, error);
         }
         executeOnLoadDataError(error);
     }
 
 
     protected void executeOnLoadDataError(String errorMsg) {
-        if(mErrorLayout==null){
+        if(mErrorLayout==null||!isVisible()){
             return;
         }
-
+        executeOnLoadFinish();
+        mState = STATE_ERROR;
         if ( mCurrentPage == 0) {
-            mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+            if(!isShowRefresh()){
+                hideWaitDialog();
+            }
+            if(mErrorLayout.isShown()){
+                mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+            }else{
+                mFooterView.setState(LoadingFooter.STATE_NETWORK_ERROR);
+                mAdapter.notifyDataSetChanged();
+            }
         }
         if (mCurrentPage != 0) {
             mCurrentPage--;
@@ -349,12 +349,5 @@ public abstract class BaseRecycleFragment
             mFooterView.setState(LoadingFooter.STATE_NETWORK_ERROR);
             mAdapter.notifyDataSetChanged();
         }
-    }
-
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 }

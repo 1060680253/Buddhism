@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
 
-import com.yuanming.buddhism.interf.BasePresenterInterf;
-
 /**
  * Created by chenghuan on 2016/7/25.
  * on phyt company
  */
-public abstract class BaseLazyFragment<T extends BasePresenterInterf> extends BaseFragment<T> {
+public abstract class BaseLazyFragment<T extends BasePresenter> extends BaseFragment<T> {
 
     /**
      * 懒加载过

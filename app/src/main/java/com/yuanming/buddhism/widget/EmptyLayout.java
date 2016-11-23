@@ -20,7 +20,6 @@ public class EmptyLayout extends LinearLayout implements
     public static final int NETWORK_ERROR = 1;
     public static final int NETWORK_LOADING = 2;
     public static final int NODATA = 3;
-    public static final int NODATA_ENABLE_CLICK = 5;
     public static final int NO_LOGIN = 6;
     public static final int INVALID_LOGIN = 7;
 
@@ -81,18 +80,6 @@ public class EmptyLayout extends LinearLayout implements
             }
         });
         addView(view);
-        changeErrorLayoutBgMode(context);
-    }
-
-    public void changeErrorLayoutBgMode(Context context1) {
-        // mLayout.setBackgroundColor(SkinsUtil.getColor(context1,
-        // "bgcolor01"));
-        // tv.setTextColor(SkinsUtil.getColor(context1, "textcolor05"));
-    }
-
-    public void dismiss() {
-        mErrorState = HIDE_LAYOUT;
-        setVisibility(View.GONE);
     }
     private boolean isCustomeEmptyView = false;
     public void setEmptyView(View view){

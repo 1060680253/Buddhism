@@ -1,5 +1,6 @@
 package com.yuanming.buddhism.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuanming.buddhism.interf.BasePresenterInterf;
 import com.yuanming.buddhism.interf.BaseView;
 import com.yuanming.buddhism.interf.DialogControl;
 import com.yuanming.buddhism.util.TDevice;
@@ -23,12 +23,12 @@ import butterknife.Unbinder;
 /**
  * Fragment基类.
  */
-public abstract class BaseFragment<T extends BasePresenterInterf> extends Fragment{
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment{
 
     private Unbinder mUnbinder;
     protected T mPresenter;
     protected LayoutInflater mInflater;
-    protected Context mContext;
+    protected View mView;
     protected abstract int getLayoutId();
     @Override
     @Nullable
@@ -37,22 +37,32 @@ public abstract class BaseFragment<T extends BasePresenterInterf> extends Fragme
         mInflater = inflater;
         if(this instanceof BaseView){
             if(mPresenter==null){
-                mPresenter = TDevice.getT(this,0);
+                mPresenter = TDevice.getT(this);
             }
             if(mPresenter!=null){
                 mPresenter.subscribe();
             }
         }
-        View mView = inflater.inflate(getLayoutId(), container, false);
-        mContext = mView.getContext();
-        inJectChildView(mView);
-        mUnbinder = ButterKnife.bind(this, mView);
-        initView(mView);
-        initData();
+        if (mView != null) {
+            ViewGroup parent = (ViewGroup) mView.getParent();
+            if (parent != null)
+                parent.removeView(mView);
+        } else {
+            mView = inflater.inflate(getLayoutId(), container, false);
+            inJectChildView(mView);
+            mUnbinder = ButterKnife.bind(this, mView);
+            initView(mView);
+        }
         return mView;
     }
 
-
+    protected Activity getFActivity(){
+        Activity activity = getActivity();
+        if(activity==null){
+            activity = (Activity) mView.getContext();
+        }
+        return activity;
+    }
 
     protected WaitDialog showWaitDialog() {
         FragmentActivity activity = getActivity();

@@ -34,6 +34,7 @@ import java.io.LineNumberReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Random;
 
 
@@ -64,10 +65,11 @@ public class TDevice {
     public TDevice() {
     }
 
-    public static <T> T getT(Object o, int i) {
+    public static <T> T getT(Object o) {
         try {
-            Class<T> z = ((Class<T>) ((ParameterizedType) (o.getClass()
-                    .getGenericSuperclass())).getActualTypeArguments()[i]);
+            Type type = o.getClass().getGenericSuperclass();
+            Type[] types = ((ParameterizedType)type).getActualTypeArguments();
+            Class<T> z = ((Class<T>)types[types.length-1]);
             Constructor<T> constructor = (Constructor<T>) z.getConstructors()[0];
             return constructor.newInstance(o);
         } catch (InstantiationException e) {

@@ -1,8 +1,15 @@
 package com.yuanming.buddhism.module.main.activity;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.DialogTitle;
 import android.util.SparseArray;
 
 import com.brioal.bottomtab.entity.TabEntity;
@@ -17,6 +24,7 @@ import com.yuanming.buddhism.widget.ZoomOutPageTransformer;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import me.nereo.multi_image_selector.MultiImageSelector;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.vp_horizontal_ntb)
@@ -33,8 +41,8 @@ public class MainActivity extends BaseActivity {
         fragments.put(2,new MainFragment());
         fragments.put(3,new MineFragment());
         final ArrayList<TabEntity> mList = new ArrayList<>();
-        mList.add(new TabEntity(R.mipmap.ic_launcher, "首页"));
-        mList.add(new TabEntity(R.mipmap.ic_launcher, "圈子"));
+        mList.add(new TabEntity(R.mipmap.ic_launcher, "资讯"));
+        mList.add(new TabEntity(R.mipmap.ic_launcher, "修行"));
         mList.add(new TabEntity(R.mipmap.ic_launcher, "发现"));
         mList.add(new TabEntity(R.mipmap.ic_launcher, "我的"));
         mBottomLayout.setList(mList); //设置数据源
@@ -86,4 +94,5 @@ public class MainActivity extends BaseActivity {
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
+
 }

@@ -1,18 +1,32 @@
 package com.yuanming.buddhism.module.main.activity;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.constant.Constants;
+import com.yuanming.buddhism.http.img.PictureLoader;
+import com.yuanming.buddhism.module.mine.fragment.MineMsgFragment;
+import com.yuanming.buddhism.module.mine.fragment.SettingFragment;
+import com.yuanming.buddhism.util.FileUtil;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+
+import me.nereo.multi_image_selector.MultiImageSelector;
 
 /**
  * Created by chenghuan on 2016/11/3.
@@ -83,5 +97,79 @@ public class CommonActivity extends BaseActivity {
     @Override
     protected boolean hasBackButton() {
         return true;
+    }
+
+
+    private static final int REQUEST_IMAGE = 1;
+    protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
+    protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
+    private ArrayList<String> mSelectPath;
+
+    public void pickImage() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+                    getString(me.nereo.multi_image_selector.R.string.mis_permission_rationale),
+                    REQUEST_STORAGE_READ_ACCESS_PERMISSION);
+        }else {
+            int maxNum = 1;
+            MultiImageSelector selector = MultiImageSelector.create();
+            selector.showCamera(true);
+            selector.count(maxNum);
+            selector.single();
+//            selector.multi();
+            selector.origin(mSelectPath);
+            selector.start(this, REQUEST_IMAGE);
+        }
+    }
+
+    private void requestPermission(final String permission, String rationale, final int requestCode){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this, permission)){
+            new AlertDialog.Builder(this)
+                    .setTitle(me.nereo.multi_image_selector.R.string.mis_permission_dialog_title)
+                    .setMessage(rationale)
+                    .setPositiveButton(me.nereo.multi_image_selector.R.string.mis_permission_dialog_ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(CommonActivity.this, new String[]{permission}, requestCode);
+                        }
+                    })
+                    .setNegativeButton(me.nereo.multi_image_selector.R.string.mis_permission_dialog_cancel, null)
+                    .create().show();
+        }else{
+            ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_IMAGE){
+            if(resultCode == RESULT_OK){
+                mSelectPath = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
+                StringBuilder sb = new StringBuilder();
+                for(String p: mSelectPath){
+                    sb.append(p);
+                }
+                String picPath = "file://"+sb.toString();
+                cutImg(picPath);
+            }
+
+        }
+        if (resultCode == RESULT_OK) {
+            if (requestCode == FileUtil.PHOTO_RESULT) {
+                if(mFragment!=null&&(mFragment.get() instanceof MineMsgFragment)){
+                    MineMsgFragment mineMsgFragment = (MineMsgFragment)mFragment.get();
+                    PictureLoader.getInstance().displayFromSDCard(FileUtil.imageUri.getPath(),mineMsgFragment.iv_user);
+                }
+
+            }
+        }
+    }
+
+    private void cutImg(String path){
+        Uri imageUri = Uri.parse(path);
+        FileUtil.bigPhotoZoom(this, imageUri, 1, 1, 720, 720);
     }
 }

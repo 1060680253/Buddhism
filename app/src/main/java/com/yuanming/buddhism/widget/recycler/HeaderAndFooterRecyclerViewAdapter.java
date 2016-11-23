@@ -5,17 +5,9 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuanming.buddhism.base.BaseRecyclerViewHolder;
-
 import java.util.ArrayList;
 
-
-/**
- * Created by chenghuan on 2015/10/9.
- * <p/>
- * RecyclerView.Adapter with Header and Footer
- */
-public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerViewHolder> {
+public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_HEADER_VIEW = Integer.MIN_VALUE;
     private static final int TYPE_FOOTER_VIEW = Integer.MIN_VALUE + 1;
@@ -23,7 +15,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
     /**
      * RecyclerView使用的，真正的Adapter
      */
-    private RecyclerView.Adapter<BaseRecyclerViewHolder> mInnerAdapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> mInnerAdapter;
 
     private ArrayList<View> mHeaderViews = new ArrayList<>();
     private ArrayList<View> mFooterViews = new ArrayList<>();
@@ -73,7 +65,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
      * 设置adapter
      * @param adapter
      */
-    public void setAdapter(RecyclerView.Adapter<BaseRecyclerViewHolder> adapter) {
+    public void setAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
 
         if (adapter != null) {
             if (!(adapter instanceof RecyclerView.Adapter))
@@ -165,7 +157,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
      * @return
      */
     @Override
-    public BaseRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         int headerViewsCountCount = getHeaderViewsCount();
         if (viewType < TYPE_HEADER_VIEW + headerViewsCountCount) {
             return new ViewHolder(mHeaderViews.get(viewType - TYPE_HEADER_VIEW));
@@ -177,7 +169,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
     }
 
     @Override
-    public void onViewAttachedToWindow(BaseRecyclerViewHolder holder) {
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
         //添加代码 需要调用内部adapter 才能收到通知
         mInnerAdapter.onViewAttachedToWindow(holder);
@@ -185,7 +177,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
     }
 
     @Override
-    public void onViewRecycled(BaseRecyclerViewHolder holder) {
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
         super.onViewRecycled(holder);
         //添加代码 需要调用内部adapter 才能收到通知
         mInnerAdapter.onViewRecycled(holder);
@@ -199,7 +191,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
      * @param position
      */
     @Override
-    public void onBindViewHolder(BaseRecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int headerViewsCountCount = getHeaderViewsCount();
         if (position >= headerViewsCountCount && position < headerViewsCountCount + mInnerAdapter.getItemCount()) {
             mInnerAdapter.onBindViewHolder(holder, position - headerViewsCountCount);
@@ -234,7 +226,7 @@ public class HeaderAndFooterRecyclerViewAdapter extends RecyclerView.Adapter<Bas
         }
     }
 
-    public  class ViewHolder extends BaseRecyclerViewHolder {
+    public  class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
         }

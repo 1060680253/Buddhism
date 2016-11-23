@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/wrap_wrap">
+
+    <ImageView
+        android:id="@+id/iv_qr_code"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/weixin_server"
+        android:background="@color/white"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:text="扫一扫上面的二维码，加我为好友"
+            android:textColor="@color/import_text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:text="(长按保存到本地)"
+            android:textColor="@color/import_text" />
+    </LinearLayout>
+
+</LinearLayout>

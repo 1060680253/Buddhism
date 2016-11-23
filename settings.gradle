@@ -1,1 +1,1 @@
-include ':app', ':bottomtab', ':filter-lib'
+include ':app', ':bottomtab', ':filter-lib', ':multi-image-selector'
