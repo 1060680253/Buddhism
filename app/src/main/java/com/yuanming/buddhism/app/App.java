@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.support.compat.BuildConfig;
 
 import com.yuanming.buddhism.constant.Constants;
+import com.yuanming.buddhism.http.img.PictureLoader;
 import com.yuanming.buddhism.util.SPUtils;
 
 /**
@@ -29,6 +30,7 @@ public class App extends Application {
 //        }
         super.onCreate();
         instance = this;
+        PictureLoader.getInstance().initImageLoader(instance);
     }
 
     public Context getContext(){

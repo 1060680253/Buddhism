@@ -1,5 +1,6 @@
 package com.yuanming.buddhism.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -55,7 +56,13 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment{
         return mView;
     }
 
-
+    protected Activity getFActivity(){
+        Activity activity = getActivity();
+        if(activity==null){
+            activity = (Activity) mView.getContext();
+        }
+        return activity;
+    }
 
     protected WaitDialog showWaitDialog() {
         FragmentActivity activity = getActivity();

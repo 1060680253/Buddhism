@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    style="@style/fill_wrap">
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textColor="@color/import_text"
+        android:text="《心经》可以指摩诃般若波罗蜜多心经，是佛经中字数最少的一部经典著作，因其字数最少、含义最深、传奇最多、影响最大，所以古往今来无数艺术家都倾注极大精力和虔诚之心"/>
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:text="心经在线"
+        android:layout_gravity="right"
+        android:textColor="@color/cpb_red"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="68dp"
+        android:weightSum="3">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:src="@drawable/fojiao" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:src="@drawable/fojiao" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:src="@drawable/fojiao" />
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+</LinearLayout>

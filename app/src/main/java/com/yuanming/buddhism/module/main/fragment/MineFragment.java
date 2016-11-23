@@ -8,6 +8,7 @@ import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.base.SwipeRefreshFragment;
 import com.yuanming.buddhism.module.main.activity.CommonActivity;
 import com.yuanming.buddhism.module.main.activity.CommonPage;
+import com.yuanming.buddhism.module.mine.fragment.QrDialog;
 import com.yuanming.buddhism.widget.RoundImageView;
 
 import butterknife.BindView;
@@ -40,7 +41,7 @@ public class MineFragment extends SwipeRefreshFragment {
         onSuccess(null);
     }
 
-    @OnClick({R.id.riv_user, R.id.tv_collection,R.id.iv_setting})
+    @OnClick({R.id.riv_user, R.id.tv_collection,R.id.iv_setting,R.id.iv_qr_code})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.riv_user:
@@ -51,6 +52,10 @@ public class MineFragment extends SwipeRefreshFragment {
                 break;
             case R.id.iv_setting:
                 CommonActivity.startActivity(view.getContext(),CommonPage.SETTING);
+                break;
+            case R.id.iv_qr_code:
+                QrDialog qrDialog = new QrDialog(view.getContext());
+                qrDialog.show();
                 break;
         }
     }

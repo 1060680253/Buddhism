@@ -14,7 +14,7 @@
     <com.brioal.bottomtab.view.BottomLayout
         android:id="@+id/main_tab"
         app:inCircleColor="#71262A"
-        app:exCircleColor="#712900"
+        app:exCircleColor="#8871292A"
         android:layout_width="match_parent"
         android:layout_height="49dp">
 

@@ -16,4 +16,6 @@
     <color name="swiperefresh_color2">#ffffbb33</color>
     <color name="swiperefresh_color3">#ffff4444</color>
     <color name="swiperefresh_color4">#ffaa66cc</color>
+    <drawable name="default_img">#E5E5E5</drawable>
+    <color name="default_img">#E5E5E5</color>
 </resources>

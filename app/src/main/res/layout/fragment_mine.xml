@@ -17,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="52dp"
             android:layout_height="52dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/ic_launcher"/>
         <TextView
             android:id="@+id/tv_1"
             style="@style/wrap_wrap"
@@ -34,6 +34,7 @@
             android:src="@drawable/shezhi"/>
 
         <ImageView
+            android:id="@+id/iv_qr_code"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentRight="true"

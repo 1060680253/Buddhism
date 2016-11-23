@@ -8,6 +8,7 @@
         style="@style/fill_wrap">
 
         <RelativeLayout
+            android:id="@+id/rl_mine_msg"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:paddingLeft="16dp"
@@ -28,6 +29,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_about_us"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1dp"
@@ -49,6 +51,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_clean_memory"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1dp"
@@ -71,6 +74,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_update"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1dp"
@@ -135,6 +139,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_advise"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1dp"

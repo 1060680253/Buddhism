@@ -5,6 +5,7 @@
     style="@style/fill_fill">
 
     <RelativeLayout
+        android:id="@+id/rl_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -33,6 +34,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -62,6 +64,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_fa_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -91,6 +94,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_user_app_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -100,7 +104,7 @@
         <TextView
             style="@style/wrap_wrap"
             android:layout_centerVertical="true"
-            android:text="法号"
+            android:text="App号"
             android:textColor="@color/import_text"/>
 
         <TextView
@@ -112,8 +116,101 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_user_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="手机号"
+            android:textColor="@color/import_text"/>
+
+        <TextView
+            android:id="@+id/tv_user_mobile"
+            android:layout_toLeftOf="@+id/iv_forward_5"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/import_text"
+            style="@style/wrap_wrap"
+            android:text="18923789800"/>
+
+        <ImageView
+            android:id="@+id/iv_forward_5"
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="邮箱"
+            android:textColor="@color/import_text"/>
+
+        <TextView
+            android:id="@+id/tv_user_email"
+            android:layout_toLeftOf="@+id/iv_forward_6"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/import_text"
+            style="@style/wrap_wrap"
+            android:text="10787878@qq.com"/>
+
+        <ImageView
+            android:id="@+id/iv_forward_6"
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_user_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:text="出生时间"
+            android:textColor="@color/import_text"/>
+
+        <TextView
+            android:id="@+id/tv_user_birthday"
+            android:layout_toLeftOf="@+id/iv_forward_7"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/import_text"
+            style="@style/wrap_wrap"
+            android:text="1993.09.01"/>
+
+        <ImageView
+            android:id="@+id/iv_forward_7"
+            style="@style/wrap_wrap"
+            android:layout_centerVertical="true"
+            android:src="@drawable/tiaozhuan"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_user_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
