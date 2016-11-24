@@ -17,13 +17,13 @@
             android:text="头像"
             android:textColor="@color/import_text"/>
 
-        <ImageView
+        <com.yuanming.buddhism.widget.RoundImageView
             android:id="@+id/iv_user"
             android:layout_toLeftOf="@+id/iv_forward_1"
             android:layout_marginRight="12dp"
             android:layout_height="52dp"
             android:layout_width="52dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/fojiao" />
 
         <ImageView
             android:id="@+id/iv_forward_1"

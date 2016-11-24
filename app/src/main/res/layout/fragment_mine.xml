@@ -17,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="52dp"
             android:layout_height="52dp"
-            android:src="@drawable/ic_launcher"/>
+            android:src="@drawable/fojiao"/>
         <TextView
             android:id="@+id/tv_1"
             style="@style/wrap_wrap"
@@ -138,6 +138,7 @@
         android:background="@color/white"
         android:weightSum="2">
         <LinearLayout
+            android:id="@+id/ll_collection"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -158,6 +159,7 @@
             android:layout_height="match_parent"
             android:background="@color/backgroud" />
         <LinearLayout
+            android:id="@+id/ll_my_msg"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -176,6 +178,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_do_thing"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -200,6 +203,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_activity"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"
@@ -224,6 +228,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_things"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"
@@ -247,6 +252,7 @@
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_collection"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"
@@ -270,6 +276,7 @@
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_friends"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"

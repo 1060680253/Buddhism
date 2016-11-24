@@ -12,13 +12,18 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.constant.Constants;
 import com.yuanming.buddhism.http.img.PictureLoader;
+import com.yuanming.buddhism.module.mine.fragment.CollectionFragment;
+import com.yuanming.buddhism.module.mine.fragment.FilterPopup;
 import com.yuanming.buddhism.module.mine.fragment.MineMsgFragment;
 import com.yuanming.buddhism.module.mine.fragment.SettingFragment;
 import com.yuanming.buddhism.util.FileUtil;
@@ -58,26 +63,90 @@ public class CommonActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean hasActionBar() {
+        if(mPageValue == 10){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    boolean isShow = true;
+    @Override
     public void initView() {
         CommonPage page = CommonPage.getPageByValue(mPageValue);
         if (page == null) {
             throw new IllegalArgumentException("can not find page by value:"
                     + mPageValue);
         }
-        mTvActionTitle.setText(page.getTitle());
-        if(page.getValue()==1){
-            getRightContiner().setVisibility(View.VISIBLE);
-            TextView textView = new TextView(this);
-            textView.setText(R.string.right_title_counts_log);
-            textView.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
-            textView.setTextSize(17);
-            getRightContiner().addView(textView);
-            getRightContiner().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    CommonActivity.startActivity(CommonActivity.this,CommonPage.COUNTLOGS);
-                }
-            });
+        if(mTvActionTitle!=null){
+            mTvActionTitle.setText(page.getTitle());
+            switch (page.getValue()){
+                case 1:
+                    getRightContiner().setVisibility(View.VISIBLE);
+                    TextView textView = new TextView(this);
+                    textView.setText(R.string.right_title_counts_log);
+                    textView.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                    textView.setTextSize(17);
+                    getRightContiner().addView(textView);
+                    getRightContiner().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            CommonActivity.startActivity(CommonActivity.this,CommonPage.COUNTLOGS);
+                        }
+                    });
+                    break;
+                case 6:
+                    getRightContiner().setVisibility(View.VISIBLE);
+                    TextView fiter = new TextView(this);
+                    fiter.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                    fiter.setText("筛选");
+                    fiter.setGravity(Gravity.CENTER);
+                    fiter.setPadding(0,0,16,0);
+                    fiter.setTextColor(ContextCompat.getColor(this, R.color.white));
+                    fiter.setTextSize(17);
+                    fiter.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            FilterPopup filterPopup = new FilterPopup(view.getContext(),FilterPopup.COLLECTION_FILTER);
+                            filterPopup.show(view);
+                        }
+                    });
+                    getRightContiner().addView(fiter,0);
+                    TextView edit = new TextView(this);
+                    edit.setPadding(16,0,0,0);
+                    edit.setGravity(Gravity.CENTER);
+                    edit.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                    edit.setText("编辑");
+                    edit.setTextColor(ContextCompat.getColor(this, R.color.white));
+                    edit.setTextSize(17);
+                    edit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(mFragment!=null&&(mFragment.get() instanceof CollectionFragment)){
+                                ((CollectionFragment)mFragment.get()).setShowDelet(isShow);
+                            }
+                            isShow = !isShow;
+                        }
+                    });
+                    getRightContiner().addView(edit,1);
+                    break;
+                case 7:
+                    getRightContiner().setVisibility(View.VISIBLE);
+                    TextView textView1 = new TextView(this);
+                    textView1.setText("+");
+                    textView1.setTextColor(ContextCompat.getColor(this, R.color.white));
+                    textView1.setTextSize(28);
+                    getRightContiner().addView(textView1);
+                    getRightContiner().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            FilterPopup filterPopup = new FilterPopup(view.getContext(),FilterPopup.PLUS_FRIENDS);
+                            filterPopup.show(view);
+                        }
+                    });
+                    break;
+            }
         }
         try {
             Fragment fragment = (Fragment) page.getClz().newInstance();

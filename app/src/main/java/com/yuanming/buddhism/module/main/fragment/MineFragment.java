@@ -41,13 +41,16 @@ public class MineFragment extends SwipeRefreshFragment {
         onSuccess(null);
     }
 
-    @OnClick({R.id.riv_user, R.id.tv_collection,R.id.iv_setting,R.id.iv_qr_code})
+    @OnClick({R.id.riv_user, R.id.tv_collection,R.id.iv_setting,R.id.iv_qr_code,R.id.ll_collection,R.id.rl_friends,R.id.ll_my_msg,R.id.rl_collection,R.id.rl_things,R.id.rl_do_thing,R.id.rl_activity})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.riv_user:
                 CommonActivity.startActivity(view.getContext(),CommonPage.MINEMSG);
                 break;
-            case R.id.tv_collection:
+//            case R.id.tv_collection:
+//                CommonActivity.startActivity(view.getContext(),CommonPage.COLLAPSE);
+//                break;
+            case R.id.rl_do_thing:
                 CommonActivity.startActivity(view.getContext(),CommonPage.COLLAPSE);
                 break;
             case R.id.iv_setting:
@@ -56,6 +59,22 @@ public class MineFragment extends SwipeRefreshFragment {
             case R.id.iv_qr_code:
                 QrDialog qrDialog = new QrDialog(view.getContext());
                 qrDialog.show();
+                break;
+            case R.id.ll_collection:
+            case R.id.rl_collection:
+                CommonActivity.startActivity(view.getContext(),CommonPage.COLLECTION);
+                break;
+            case R.id.rl_friends:
+                CommonActivity.startActivity(view.getContext(),CommonPage.MYFRIENDS);
+                break;
+            case R.id.ll_my_msg:
+                CommonActivity.startActivity(view.getContext(),CommonPage.MYMSGS);
+                break;
+            case R.id.rl_things:
+                CommonActivity.startActivity(view.getContext(),CommonPage.MYTHINGS);
+                break;
+            case R.id.rl_activity:
+                CommonActivity.startActivity(view.getContext(),CommonPage.MYACTIVITY);
                 break;
         }
     }

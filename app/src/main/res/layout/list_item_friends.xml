@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:background="@color/white"
+    style="@style/fill_wrap">
+
+    <com.yuanming.buddhism.widget.RoundImageView
+        android:id="@+id/iv_user"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/fojiao" />
+
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:text="法信大师"
+        android:layout_toRightOf="@+id/iv_user"
+        android:textColor="@color/import_text" />
+
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:layout_alignBottom="@+id/iv_user"
+        android:text="等级：1"
+        android:layout_toRightOf="@+id/iv_user"
+        android:textColor="@color/import_text" />
+
+    <View
+        android:layout_below="@+id/iv_user"
+        android:background="@color/line"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+</RelativeLayout>
