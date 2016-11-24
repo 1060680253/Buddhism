@@ -43,14 +43,25 @@
                 android:layout_marginLeft="86dp"
                 android:layout_marginRight="86dp" />
 
-            <TextView
-                style="@style/wrap_wrap"
-                android:text="+"
-                android:textSize="28dp"
-                android:layout_centerVertical="true"
+            <LinearLayout
+                android:id="@+id/iv_add"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:textColor="@color/white"/>
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="+"
+                    android:textSize="28dp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
