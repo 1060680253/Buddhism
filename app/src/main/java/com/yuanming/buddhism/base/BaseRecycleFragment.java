@@ -173,6 +173,9 @@ public abstract class BaseRecycleFragment
                 }
                 scrollChange();
                 if (RecyclerView.SCROLL_STATE_IDLE == newState) {
+                    if(isNeedRefresh()){
+                        mSwipeRefreshLayout.setEnabled(getLayoutManager().getChildAt(0).getY()==0);
+                    }
                     int size = (int) (mAdapter.getItemCount() * 0.8f);
                     if (mAdapter.getAdapterPosition() >= --size && mState!=STATE_LOADMORE&&mState!=STATE_NOMORE&&mState!=STATE_REFRESH) {
                         mCurrentPage++;
@@ -182,6 +185,9 @@ public abstract class BaseRecycleFragment
                     }
                 } else if (RecyclerView.SCROLL_STATE_DRAGGING == newState) {
                     //用户正在滑动
+                    if(isNeedRefresh()){
+                        mSwipeRefreshLayout.setEnabled(getLayoutManager().getChildAt(0).getY()==0);
+                    }
                 } else {
                     //惯性滑动
                 }

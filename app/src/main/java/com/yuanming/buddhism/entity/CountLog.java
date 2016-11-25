@@ -18,6 +18,7 @@ public class CountLog extends BaseEntity {
     private String personal_pledge;
     private String recite_type;
 
+
     public String getTime() {
         return time;
     }
@@ -58,35 +59,36 @@ public class CountLog extends BaseEntity {
         this.recite_type = recite_type;
     }
 
-    public CountLog(int recite_count, String time, String personal_pledge, String recite_type) {
+    public CountLog(int recite_count, String time, String personal_pledge, String recite_type,String mantra_type) {
         this.recite_count = recite_count;
         this.time = time;
         this.personal_pledge = personal_pledge;
         this.recite_type = recite_type;
+        this.mantra_type = mantra_type;
     }
 
     public static List<CountLog> getDatas(){
         List<CountLog> countLogs = new ArrayList<>();
-        countLogs.add(new CountLog(1,"2016-09-08","开开信息，为了世界祈福","尼玛石"));
-        countLogs.add(new CountLog(2,"2016-01-08","开开信息，为了世界祈福","尼玛石2"));
-        countLogs.add(new CountLog(5,"2016-02-08","开开信息，为了世界祈福dsd","尼玛石"));
-        countLogs.add(new CountLog(9,"2016-05-08","开开信息，为了世界祈福","尼玛石3"));
-        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
-        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
-        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
-        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
-        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
-        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
-        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
-        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
-        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
-        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
-        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
-        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
-        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e"));
-        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石"));
-        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石"));
-        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s"));
+        countLogs.add(new CountLog(1,"2016-09-08","开开信息，为了世界祈福","尼玛石","1"));
+        countLogs.add(new CountLog(2,"2016-01-08","开开信息，为了世界祈福","尼玛石2","3"));
+        countLogs.add(new CountLog(5,"2016-02-08","开开信息，为了世界祈福dsd","尼玛石","2"));
+        countLogs.add(new CountLog(9,"2016-05-08","开开信息，为了世界祈福","尼玛石3","1"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e","3"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石","2"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石","2"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s","2"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e","2"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石","1"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石","3"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s","2"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e","1"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石","1"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石","2"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s","1"));
+        countLogs.add(new CountLog(9,"2016-03-08","开开信息，为了世界dsd祈福","尼玛石e","1"));
+        countLogs.add(new CountLog(3,"2016-02-08","开开信息，为了世界祈福","尼玛石","2"));
+        countLogs.add(new CountLog(21,"2016-01-08","开开信息，为了世ss界祈福","尼玛f石","1"));
+        countLogs.add(new CountLog(1,"2016-01-08","开开信息，为了世界祈福","尼玛石s","2"));
         return countLogs;
     }
 }

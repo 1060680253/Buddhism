@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DialogTitle;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.brioal.bottomtab.entity.TabEntity;
@@ -17,6 +18,7 @@ import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
 import com.brioal.bottomtab.view.BottomLayout;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
+import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
 import com.yuanming.buddhism.widget.ZoomOutPageTransformer;

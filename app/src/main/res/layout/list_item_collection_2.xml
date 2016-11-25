@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="@color/white"
+    android:paddingTop="20dp"
     style="@style/fill_wrap">
 
     <TextView
+        android:id="@+id/tv_content"
         style="@style/wrap_wrap"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -12,16 +14,31 @@
         android:ellipsize="end"
         android:textColor="@color/import_text"
         android:text="《心经》可以指摩诃般若波罗蜜多心经，是佛经中字数最少的一部经典著作，因其字数最少、含义最深、传奇最多、影响最大，所以古往今来无数艺术家都倾注极大精力和虔诚之心"/>
-
-    <TextView
-        style="@style/wrap_wrap"
-        android:text="心经在线"
-        android:layout_gravity="right"
-        android:textColor="@color/cpb_red"
+    <RelativeLayout
+        android:id="@+id/rl_middle"
+        android:layout_below="@+id/tv_content"
         android:layout_marginTop="12dp"
-        android:layout_marginRight="20dp"/>
+        style="@style/fill_wrap">
+
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:layout_marginLeft="20dp"
+            android:text="2016.08.08"
+            android:textColor="@color/secondary_text"
+            android:layout_marginRight="20dp"/>
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:text="心经在线"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/cpb_red"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_img"
+        android:layout_below="@+id/rl_middle"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="12dp"
@@ -52,12 +69,24 @@
             android:src="@drawable/fojiao" />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/delete"
 
+        android:visibility="gone"
+        android:layout_width="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:text="删除"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@color/cpb_red"
+        android:layout_height="24dp"/>
 
 
     <View
+        android:layout_below="@+id/ll_img"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/line" />
-</LinearLayout>
+</RelativeLayout>

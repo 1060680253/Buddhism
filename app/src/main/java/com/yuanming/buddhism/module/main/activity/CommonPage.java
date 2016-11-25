@@ -1,12 +1,17 @@
 package com.yuanming.buddhism.module.main.activity;
 
 import com.yuanming.buddhism.R;
+import com.yuanming.buddhism.module.mine.fragment.ActivityFragment;
 import com.yuanming.buddhism.module.mine.fragment.CollapseFragment;
+import com.yuanming.buddhism.module.mine.fragment.CollectionFragment;
 import com.yuanming.buddhism.module.mine.fragment.CountFragment;
 import com.yuanming.buddhism.module.mine.fragment.CountLogsFragment;
+import com.yuanming.buddhism.module.mine.fragment.FriendsFragment;
 import com.yuanming.buddhism.module.mine.fragment.GenCountLogsFragment;
 import com.yuanming.buddhism.module.mine.fragment.MineMsgFragment;
+import com.yuanming.buddhism.module.mine.fragment.MsgsFragment;
 import com.yuanming.buddhism.module.mine.fragment.SettingFragment;
+import com.yuanming.buddhism.module.mine.fragment.ThingsFragment;
 
 /**
  * Created by chenghuan on 2016/11/3.
@@ -20,7 +25,12 @@ public enum CommonPage {
     COUNTLOGS(2, R.string.actionbar_title_count_log, GenCountLogsFragment.class),
     COLLAPSE(3, R.string.actionbar_title_count_log, CollapseFragment.class),
     SETTING(4, R.string.actionbar_title_setting, SettingFragment.class),
-    MINEMSG(5, R.string.actionbar_title_mine_msg, MineMsgFragment.class);
+    MINEMSG(5, R.string.actionbar_title_mine_msg, MineMsgFragment.class),
+    COLLECTION(6, R.string.actionbar_title_colletion, CollectionFragment.class),
+    MYFRIENDS(7, R.string.actionbar_title_friends, FriendsFragment.class),
+    MYMSGS(8, R.string.actionbar_title_msgs, MsgsFragment.class),
+    MYTHINGS(9, R.string.actionbar_title_things, ThingsFragment.class),
+    MYACTIVITY(10, R.string.actionbar_title_things, ActivityFragment.class);
 
     private int title;
     private Class<?> clz;
