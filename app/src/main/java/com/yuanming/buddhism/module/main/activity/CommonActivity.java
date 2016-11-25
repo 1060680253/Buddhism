@@ -222,7 +222,12 @@ public class CommonActivity extends BaseActivity {
                         sb.append(p);
                     }
                     String picPath = "file://" + sb.toString();
-                    cutImg(picPath);
+                    if (mFragment != null && (mFragment.get() instanceof MineMsgFragment)) {
+                        Uri uri = data.getData();
+                        MineMsgFragment mineMsgFragment = (MineMsgFragment) mFragment.get();
+                        PictureLoader.getInstance().displayFromSDCard(sb.toString(), mineMsgFragment.iv_user);
+                    }
+//                    cutImg(picPath);
                     break;
                 case REQUEST_CUT:
                     if (mFragment != null && (mFragment.get() instanceof MineMsgFragment)) {
