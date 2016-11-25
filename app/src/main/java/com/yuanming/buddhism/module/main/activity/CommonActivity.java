@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -29,6 +30,7 @@ import com.yuanming.buddhism.module.mine.fragment.SettingFragment;
 import com.yuanming.buddhism.util.FileUtil;
 
 import java.lang.ref.WeakReference;
+import java.net.URI;
 import java.util.ArrayList;
 
 import me.nereo.multi_image_selector.MultiImageSelector;
@@ -168,10 +170,7 @@ public class CommonActivity extends BaseActivity {
         return true;
     }
 
-
-    private static final int REQUEST_IMAGE = 1;
     protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
-    protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
     private ArrayList<String> mSelectPath;
 
     public void pickImage() {
@@ -192,7 +191,7 @@ public class CommonActivity extends BaseActivity {
             selector.start(this, REQUEST_IMAGE);
         }
     }
-
+    private final int REQUEST_IMAGE = 1,REQUEST_CUT = 2;
     private void requestPermission(final String permission, String rationale, final int requestCode){
         if(ActivityCompat.shouldShowRequestPermissionRationale(this, permission)){
             new AlertDialog.Builder(this)
@@ -214,31 +213,30 @@ public class CommonActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_IMAGE){
-            if(resultCode == RESULT_OK){
-                mSelectPath = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
-                StringBuilder sb = new StringBuilder();
-                for(String p: mSelectPath){
-                    sb.append(p);
-                }
-                String picPath = "file://"+sb.toString();
-                cutImg(picPath);
-            }
-
-        }
-        if (resultCode == RESULT_OK) {
-            if (requestCode == FileUtil.PHOTO_RESULT) {
-                if(mFragment!=null&&(mFragment.get() instanceof MineMsgFragment)){
-                    MineMsgFragment mineMsgFragment = (MineMsgFragment)mFragment.get();
-                    PictureLoader.getInstance().displayFromSDCard(FileUtil.imageUri.getPath(),mineMsgFragment.iv_user);
-                }
-
+        if(resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_IMAGE:
+                    mSelectPath = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
+                    StringBuilder sb = new StringBuilder();
+                    for (String p : mSelectPath) {
+                        sb.append(p);
+                    }
+                    String picPath = "file://" + sb.toString();
+                    cutImg(picPath);
+                    break;
+                case REQUEST_CUT:
+                    if (mFragment != null && (mFragment.get() instanceof MineMsgFragment)) {
+                        Uri uri = data.getData();
+                        MineMsgFragment mineMsgFragment = (MineMsgFragment) mFragment.get();
+                        PictureLoader.getInstance().displayFromSDCard(uri.getPath(), mineMsgFragment.iv_user);
+                    }
+                    break;
             }
         }
     }
 
     private void cutImg(String path){
         Uri imageUri = Uri.parse(path);
-        FileUtil.bigPhotoZoom(this, imageUri, 1, 1, 720, 720);
+        FileUtil.bigPhotoZoom(this, imageUri, 1, 1, 720, 720,REQUEST_CUT);
     }
 }

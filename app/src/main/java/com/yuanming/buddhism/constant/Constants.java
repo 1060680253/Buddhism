@@ -15,8 +15,7 @@ public class Constants {
     public static final String BUNDLE_COMMON_EXTRA = "bundle_common_extra";
 
     public final static String IMG_PREFIX = "";
-    public final static String IMG_CACHE_PATH_INVISBLE = "ym/imagecache";
-    public static final String KEY_CHECK_UPDATE = "KEY_CHECK_UPDATE";
+    public final static String IMG_CACHE_PATH_INVISBLE = "ym/imagecache/";
     public static final String HTTP_BASE_URL = "http://pre.phyt88.com/";
     // 默认存放图片的路径
     public final static String DEFAULT_SAVE_IMAGE_PATH = Environment

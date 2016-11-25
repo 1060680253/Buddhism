@@ -659,37 +659,26 @@ public class FileUtil {
     private static final String TAG = "FileUtil";
     private static final File parentPath = Environment.getExternalStorageDirectory();
     private static String storagePath = "";
-    //	public static final String Uri = "file://";
     private static final String DST_FOLDER_NAME = "Phyt";
     public static final String TEMP_IMAGE = Constants.IMG_CACHE_PATH_INVISBLE;
     public static final String IMAGE_UNSPECIFIED = "image/*";
-    public static final int IMAGE_BIG_SIZE = 320;
-    public final static int TAKE_PHOTO = 1;
-    public final static int PHOTO_RESULT = 2;
-    public final static int CHOOSE_BIG_PICTURE = 3;
     private static final int FILESIZE = 50;
 
-    @Deprecated
-    public static void photoZoom(BaseActivity cls, Uri uri, int x, int y) {
-        Intent intent = new Intent("com.android.camera.action.CROP");
-
-        intent.putExtra("crop", "true");
-        // aspectX aspectY 是宽高的比例
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        // outputX outputY 是裁剪图片宽高
-        intent.putExtra("outputX", x);
-        intent.putExtra("outputY", y);
-        intent.putExtra("return-data", true);
-        cls.startActivityForResult(intent, PHOTO_RESULT);
-    }
-
-    public static File picture;//temp file
-    public static Uri imageUri;//The Uri to store the big bitmap
-
-    public static void bigPhotoZoom(Activity cls, Uri uri, int aspectX, int aspectY, int xPx, int yPx) {
-        getSDir();
-        getImageFile();
+    public static void bigPhotoZoom(Activity cls, Uri uri, int aspectX, int aspectY, int xPx, int yPx,int requestCode) {
+        StringBuilder sDir = new StringBuilder();
+        if (hasSDcard()) {
+            sDir.append(Constants.DEFAULT_SAVE_IMAGE_PATH);
+        } else {
+            String dataPath = Environment.getRootDirectory().getPath();
+            sDir.append(dataPath + File.separator + TEMP_IMAGE);
+        }
+        File fileDir = new File(sDir.toString());
+        if (!fileDir.exists()) {
+            fileDir.mkdirs();
+        }
+        File picture = new File(sDir.toString() +
+                String.valueOf(System.currentTimeMillis()) + ".JPEG");
+        Uri imageUri = Uri.fromFile(picture);
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, IMAGE_UNSPECIFIED);
         intent.putExtra("crop", "true");
@@ -705,31 +694,7 @@ public class FileUtil {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("noFaceDetection", true); // no face detection
-        cls.startActivityForResult(intent, PHOTO_RESULT);
-    }
-
-    public static String getSDir(){
-        StringBuilder sDir = new StringBuilder();
-        if (hasSDcard()) {
-            sDir.append(Environment.getExternalStorageDirectory()
-                    + File.separator + FileUtil.TEMP_IMAGE);
-        } else {
-            String dataPath = Environment.getRootDirectory().getPath();
-            sDir.append(dataPath + File.separator + FileUtil.TEMP_IMAGE);
-        }
-        File fileDir = new File(sDir.toString());
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
-        return sDir.toString();
-    }
-
-    private static void getImageFile(){
-        picture = new File(Environment.getExternalStorageDirectory()
-                + File.separator + TEMP_IMAGE
-                + File.separator +
-                String.valueOf(System.currentTimeMillis()) + ".JPEG");
-        imageUri = Uri.fromFile(picture);
+        cls.startActivityForResult(intent, requestCode);
     }
 
     public static boolean hasSDcard() {
