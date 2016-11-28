@@ -23,4 +23,12 @@ public class Constants {
             + File.separator
             + "ym"
             + File.separator + "ym_img" + File.separator;
+
+
+    //http error state
+    /**
+     * -1:无网络连接
+     * -2:暂无数据
+     * -3:返回数据格式不正确
+     */
 }

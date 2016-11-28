@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/fill_fill">
+
+    <android.support.design.widget.AppBarLayout
+        style="@style/fill_wrap">
+
+        <RelativeLayout
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_width="fill_parent"
+            android:background="@color/mainColor"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                style="@style/wrap_wrap"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:text="掌中佛" />
+
+            <ImageView
+                android:id="@+id/search_badge"
+                style="@style/wrap_wrap"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_menu_search" />
+
+        </RelativeLayout>
+        <android.support.design.widget.TabLayout
+            android:background="@color/white"
+            android:id="@+id/materialup_tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:tabTextColor="@color/import_text"
+            app:tabSelectedTextColor="@color/import_text"
+            app:tabIndicatorColor="@color/mainColor"
+            app:tabIndicatorHeight="2dp"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/pager"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</android.support.design.widget.CoordinatorLayout>

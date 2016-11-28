@@ -27,4 +27,11 @@
 文／西凉小可（简书作者）
 原文链接：http://www.jianshu.com/p/101173b1a131
 著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</string>
+
+
+    <string name="no_internet">无网络连接~！</string>
+    <string name="generic_no_data_error">暂无数据~！</string>
+    <string name="generic_form_error">数据格式不正确~！</string>
+    <string name="generic_server_down">连接服务器失败~！</string>
+    <string name="generic_error">网络异常,请稍后再试~！</string>
 </resources>

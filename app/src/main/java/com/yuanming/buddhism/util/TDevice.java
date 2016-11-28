@@ -98,9 +98,9 @@ public class TDevice {
      * @param context
      * @return
      */
-    public static boolean isConnected(Context context) {
+    public static boolean isConnected() {
 
-        ConnectivityManager connectivity = (ConnectivityManager) context
+        ConnectivityManager connectivity = (ConnectivityManager) App.getInstance().getContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (null != connectivity) {

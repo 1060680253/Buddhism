@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -38,4 +39,5 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.alibaba:fastjson:1.2.21'
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'org.apache.karaf.demos:org.apache.karaf.demos.deployer:4.0.7'
 }
