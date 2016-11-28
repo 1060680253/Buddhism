@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" style="@style/fill_wrap"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:gravity="center_horizontal">
+
+    <com.yuanming.buddhism.widget.RoundImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/fojiao" />
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/import_text"
+        android:text="佛教1"/>
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/secondary_text"
+        android:text="这里讲述着佛教1的知识等等文章"/>
+</LinearLayout>

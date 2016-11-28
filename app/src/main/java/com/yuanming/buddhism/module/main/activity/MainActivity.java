@@ -21,6 +21,7 @@ import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
+import com.yuanming.buddhism.module.main.fragment.NewsFragment;
 import com.yuanming.buddhism.widget.ZoomOutPageTransformer;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         fragments = new SparseArray<>();
-        fragments.put(0,new MainFragment());
+        fragments.put(0,new NewsFragment());
         fragments.put(1,new MainFragment());
         fragments.put(2,new MainFragment());
         fragments.put(3,new MineFragment());
@@ -49,7 +50,6 @@ public class MainActivity extends BaseActivity {
         mList.add(new TabEntity(R.mipmap.ic_launcher, "我的"));
         mBottomLayout.setList(mList); //设置数据源
         mBottomLayout.setNews(5, 3);
-        mTvActionTitle.setText(mList.get(0).getText());
         //设置Item点击事件
         mBottomLayout.setSelectedListener(new OnTabSelectedListener() {
             @Override
@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                mTvActionTitle.setText(mList.get(position).getText());
                 mBottomLayout.setCurrentIndex(position);
             }
 
@@ -77,6 +76,11 @@ public class MainActivity extends BaseActivity {
             public void onPageScrollStateChanged(int arg0) {
             }
         });
+    }
+
+    @Override
+    protected boolean hasActionBar() {
+        return false;
     }
 
     FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {

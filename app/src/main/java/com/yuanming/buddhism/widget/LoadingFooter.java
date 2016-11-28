@@ -101,7 +101,7 @@ public class LoadingFooter extends RelativeLayout {
             case STATE_NETWORK_ERROR:
                 mLoadingProgress.setVisibility(View.GONE);
                 mLoadingText.setVisibility(View.VISIBLE);
-                if (TDevice.isConnected(App.getInstance().getContext())) {
+                if (TDevice.isConnected()) {
                     mLoadingText.setText("加载出错了");
                 } else {
                     mLoadingText.setText("没有可用的网络");
