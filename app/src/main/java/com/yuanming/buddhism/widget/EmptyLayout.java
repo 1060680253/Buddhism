@@ -132,7 +132,7 @@ public class EmptyLayout extends LinearLayout implements
         switch (i) {
         case NETWORK_ERROR:
             mErrorState = NETWORK_ERROR;
-            if (TDevice.isConnected(context)) {
+            if (TDevice.isConnected()) {
                 img.setBackgroundResource(R.drawable.data_error);
             } else {
                 img.setBackgroundResource(R.drawable.network_error);

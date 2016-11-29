@@ -7,7 +7,6 @@ import com.yuanming.buddhism.base.BasePresenter;
 import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
-import com.yuanming.buddhism.module.mine.adapter.FriendssAdapter;
 import com.yuanming.buddhism.module.mine.adapter.ThingsAdapter;
 
 import java.util.List;

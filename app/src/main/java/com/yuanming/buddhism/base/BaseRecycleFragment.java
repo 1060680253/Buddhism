@@ -39,7 +39,7 @@ public abstract class BaseRecycleFragment
     @BindView(R.id.recycler_list)
     protected RecyclerView mRecyclerView;
     @BindView(R.id.swiperefreshlayout)
-    SwipeRefreshLayout mSwipeRefreshLayout;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
     protected T mAdapter;
@@ -78,7 +78,7 @@ public abstract class BaseRecycleFragment
             @Override
             public void onClick(View v) {
                 mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-                if(!TDevice.isConnected(view.getContext())){
+                if(!TDevice.isConnected()){
                     mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
                     return;
                 }
@@ -131,10 +131,6 @@ public abstract class BaseRecycleFragment
         return null;
     }
 
-    protected boolean requestDataIfViewCreated() {
-        return true;
-    }
-
 
     protected abstract T getAdapter(); //这里初始化 adapter
 
@@ -156,12 +152,13 @@ public abstract class BaseRecycleFragment
         HeaderAndFooterRecyclerViewAdapter headAdapter = new HeaderAndFooterRecyclerViewAdapter(mAdapter);
         mRecyclerView.setAdapter(headAdapter);
         mRecyclerView.setLayoutManager(getLayoutManager());
-        //绑定能添加头尾View的adapter后 检查View返回 添加
-        if (getHeadView() != null) {
-            RecyclerViewUtils.addHearView(mRecyclerView, getHeadView());
+        View headView = getHeadView();
+        if (headView != null) {
+            RecyclerViewUtils.addHearView(mRecyclerView, headView);
         }
-        if (getFootView() != null) {
-            RecyclerViewUtils.addFootView(mRecyclerView, getFootView());
+        View footView = getFootView();
+        if (footView != null) {
+            RecyclerViewUtils.addFootView(mRecyclerView, footView);
         }
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -193,8 +190,6 @@ public abstract class BaseRecycleFragment
                 }
             }
         });
-
-
     }
 
     protected void scrollChange(){

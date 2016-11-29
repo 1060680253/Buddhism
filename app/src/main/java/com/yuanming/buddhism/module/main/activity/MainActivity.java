@@ -1,16 +1,8 @@
 package com.yuanming.buddhism.module.main.activity;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DialogTitle;
-import android.util.Log;
 import android.util.SparseArray;
 
 import com.brioal.bottomtab.entity.TabEntity;
@@ -18,15 +10,17 @@ import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
 import com.brioal.bottomtab.view.BottomLayout;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
-import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
+import com.yuanming.buddhism.module.main.fragment.NewsFragment;
 import com.yuanming.buddhism.widget.ZoomOutPageTransformer;
+import com.yuanming.buddhism.widget.update.UpdateAgent;
+import com.yuanming.buddhism.widget.update.UpdateInfo;
+import com.yuanming.buddhism.widget.update.UpdateManager;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import me.nereo.multi_image_selector.MultiImageSelector;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.vp_horizontal_ntb)
@@ -38,7 +32,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         fragments = new SparseArray<>();
-        fragments.put(0,new MainFragment());
+        fragments.put(0,new NewsFragment());
         fragments.put(1,new MainFragment());
         fragments.put(2,new MainFragment());
         fragments.put(3,new MineFragment());
@@ -49,7 +43,6 @@ public class MainActivity extends BaseActivity {
         mList.add(new TabEntity(R.mipmap.ic_launcher, "我的"));
         mBottomLayout.setList(mList); //设置数据源
         mBottomLayout.setNews(5, 3);
-        mTvActionTitle.setText(mList.get(0).getText());
         //设置Item点击事件
         mBottomLayout.setSelectedListener(new OnTabSelectedListener() {
             @Override
@@ -65,7 +58,6 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                mTvActionTitle.setText(mList.get(position).getText());
                 mBottomLayout.setCurrentIndex(position);
             }
 
@@ -77,6 +69,31 @@ public class MainActivity extends BaseActivity {
             public void onPageScrollStateChanged(int arg0) {
             }
         });
+    }
+
+//    void check(boolean isManual, final boolean hasUpdate, final boolean isForce, final boolean isSilent, final boolean isIgnorable, final int notifyId) {
+//        UpdateManager.create(this).setUrl(mCheckUrl).setManual(isManual).setNotifyId(notifyId).setParser(new UpdateAgent.InfoParser() {
+//            @Override
+//            public UpdateInfo parse(String source) throws Exception {
+//                UpdateInfo info = new UpdateInfo();
+//                info.hasUpdate = hasUpdate;
+//                info.updateContent = "• 支持文字、贴纸、背景音乐，尽情展现欢乐气氛；\n• 两人视频通话支持实时滤镜，丰富滤镜，多彩心情；\n• 图片编辑新增艺术滤镜，一键打造文艺画风；\n• 资料卡新增点赞排行榜，看好友里谁是魅力之王。";
+//                info.versionCode = 587;
+//                info.versionName = "v5.8.7";
+//                info.url = mUpdateUrl;
+//                info.md5 = "56cf48f10e4cf6043fbf53bbbc4009e3";
+//                info.size = 10149314;
+//                info.isForce = isForce;
+//                info.isIgnorable = isIgnorable;
+//                info.isSilent = isSilent;
+//                return info;
+//            }
+//        }).check();
+//    }
+
+    @Override
+    protected boolean hasActionBar() {
+        return false;
     }
 
     FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {

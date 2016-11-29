@@ -1,18 +1,19 @@
 package com.yuanming.buddhism.module.main.fragment;
 
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
-import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.base.SwipeRefreshFragment;
 import com.yuanming.buddhism.module.main.activity.CommonActivity;
 import com.yuanming.buddhism.module.main.activity.CommonPage;
 import com.yuanming.buddhism.module.mine.fragment.QrDialog;
-import com.yuanming.buddhism.widget.RoundImageView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by chenghuan on 2016/11/3.
@@ -22,9 +23,22 @@ import butterknife.OnClick;
 public class MineFragment extends SwipeRefreshFragment {
 
     @BindView(R.id.riv_user)
-    RoundImageView rivUser;
+    CircleImageView rivUser;
     @BindView(R.id.tv_collection)
     TextView tvCollection;
+    @BindView(R.id.scrollView)
+    ScrollView mScrollView;
+
+    @Override
+    public void initView(View view) {
+        super.initView(view);
+        mScrollView.getViewTreeObserver().addOnScrollChangedListener(new  ViewTreeObserver.OnScrollChangedListener(){
+            @Override
+            public void onScrollChanged() {
+                mSwipeRefreshLayout.setEnabled(mScrollView.getScrollY()==0);
+            }
+        });
+    }
 
     @Override
     protected int getRefreshLayoutId() {

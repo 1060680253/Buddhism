@@ -17,7 +17,7 @@ import butterknife.BindView;
 
 public abstract class SwipeRefreshFragment<T extends BasePresenter,E extends BaseEntity> extends BaseFragment<T> implements SwipeRefreshLayout.OnRefreshListener,HttpRequestListener<E> {
     @BindView(R.id.swiperefreshlayout)
-    SwipeRefreshLayout mSwipeRefreshLayout;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
 

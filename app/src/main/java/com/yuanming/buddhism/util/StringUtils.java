@@ -1,6 +1,9 @@
 package com.yuanming.buddhism.util;
 
+import com.yuanming.buddhism.app.App;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -72,6 +75,22 @@ public class StringUtils {
         } catch (ParseException e) {
             return null;
         }
+    }
+
+    public static String getStringFromRes(int str){
+        return App.getInstance().getContext().getString(str);
+    }
+
+    public static String getExtension(final File file) {
+        String suffix = "";
+        String name = file.getName();
+        final int idx = name.lastIndexOf(".");
+        if (idx > 0) {
+            suffix = name.substring(idx + 1);
+        }
+        String s=new String();
+        String c=s.valueOf(suffix).toLowerCase();
+        return "image/"+c;
     }
 
     public static String formatTosepara(double data) {

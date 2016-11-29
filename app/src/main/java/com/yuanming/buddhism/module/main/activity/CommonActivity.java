@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -16,7 +15,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
@@ -26,11 +24,9 @@ import com.yuanming.buddhism.http.img.PictureLoader;
 import com.yuanming.buddhism.module.mine.fragment.CollectionFragment;
 import com.yuanming.buddhism.module.mine.fragment.FilterPopup;
 import com.yuanming.buddhism.module.mine.fragment.MineMsgFragment;
-import com.yuanming.buddhism.module.mine.fragment.SettingFragment;
 import com.yuanming.buddhism.util.FileUtil;
 
 import java.lang.ref.WeakReference;
-import java.net.URI;
 import java.util.ArrayList;
 
 import me.nereo.multi_image_selector.MultiImageSelector;

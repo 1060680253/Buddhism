@@ -5,7 +5,6 @@ import com.yuanming.buddhism.module.mine.fragment.ActivityFragment;
 import com.yuanming.buddhism.module.mine.fragment.CollapseFragment;
 import com.yuanming.buddhism.module.mine.fragment.CollectionFragment;
 import com.yuanming.buddhism.module.mine.fragment.CountFragment;
-import com.yuanming.buddhism.module.mine.fragment.CountLogsFragment;
 import com.yuanming.buddhism.module.mine.fragment.FriendsFragment;
 import com.yuanming.buddhism.module.mine.fragment.GenCountLogsFragment;
 import com.yuanming.buddhism.module.mine.fragment.MineMsgFragment;

@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ad_rl"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.yuanming.buddhism.widget.imagecycle.CycleViewPager
+        android:id="@+id/pager_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/viewGroup"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal" >-->
+    <!--</LinearLayout>-->
+    <com.yuanming.buddhism.widget.indictor.CirclePagerIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"
+        app:circle_indicator_centerHorizontal="true"
+        app:circle_indicator_color="@color/white"
+        app:circle_indicator_fill_color="@color/mainColor"
+        app:circle_indicator_indicator_radius="3dp"
+        app:circle_indicator_radius="2dp" />
+</RelativeLayout>

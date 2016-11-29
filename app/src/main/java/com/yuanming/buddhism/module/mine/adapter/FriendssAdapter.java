@@ -3,13 +3,11 @@ package com.yuanming.buddhism.module.mine.adapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseRecyclerAdapter;
 import com.yuanming.buddhism.entity.CountLog;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**

@@ -1,16 +1,12 @@
 package com.yuanming.buddhism.module.mine.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.module.main.activity.CommonActivity;
 import com.yuanming.buddhism.module.main.activity.CommonPage;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
