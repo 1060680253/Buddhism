@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
 import android.view.View;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.module.news.fragment.LatestFragment;
 import com.yuanming.buddhism.module.news.fragment.MusicFragment;
 import com.yuanming.buddhism.module.news.fragment.PagesFragment;
@@ -18,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by chenghuan on 2016/11/28.
@@ -48,11 +49,6 @@ public class NewsFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_news;
-    }
-
-    @OnClick(R.id.search_badge)
-    public void onClick() {
-
     }
 
     private class TabPagerAdapter extends FragmentPagerAdapter {
@@ -87,16 +83,26 @@ public class NewsFragment extends BaseFragment {
         }
     }
 
-    private Fragment getFragment(int index){
-        if(index==1){
-            return new PagesFragment();
-        }else if(index == 2){
-            return new ShelfFragment();
-        }else if(index == 3){
-            return new MusicFragment();
-        }else{
-            return new LatestFragment();
-        }
+    private SparseArray<BaseRecycleFragment> sparseArray;
 
+    private Fragment getFragment(int index){
+        if(sparseArray==null){
+            sparseArray = new SparseArray<>();
+        }
+        BaseRecycleFragment recycleFragment = sparseArray.get(index);
+        if(recycleFragment!=null){
+            return recycleFragment;
+        }
+        if(index==1){
+            recycleFragment = new PagesFragment();
+        }else if(index == 2){
+            recycleFragment = new ShelfFragment();
+        }else if(index == 3){
+            recycleFragment =  new MusicFragment();
+        }else{
+            recycleFragment = new LatestFragment();
+        }
+        sparseArray.put(index,recycleFragment);
+        return recycleFragment;
     }
 }

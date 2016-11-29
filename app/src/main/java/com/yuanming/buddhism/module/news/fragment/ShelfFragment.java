@@ -2,13 +2,11 @@ package com.yuanming.buddhism.module.news.fragment;
 
 import android.view.View;
 
-import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BasePresenter;
 import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
 import com.yuanming.buddhism.module.news.adapter.BookShelfAdapter;
-import com.yuanming.buddhism.module.news.adapter.PageNewsAdapter;
 
 import java.util.List;
 

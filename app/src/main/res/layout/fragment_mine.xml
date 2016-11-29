@@ -24,12 +24,12 @@
                 android:src="@drawable/fo_bg" />
 
             <ImageView
-            android:id="@+id/iv_setting"
+                android:id="@+id/iv_setting"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/shezhi"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/shezhi"/>
 
             <ImageView
                 android:id="@+id/iv_qr_code"

@@ -1,16 +1,8 @@
 package com.yuanming.buddhism.module.main.activity;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DialogTitle;
-import android.util.Log;
 import android.util.SparseArray;
 
 import com.brioal.bottomtab.entity.TabEntity;
@@ -18,7 +10,6 @@ import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
 import com.brioal.bottomtab.view.BottomLayout;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
-import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
 import com.yuanming.buddhism.module.main.fragment.NewsFragment;
@@ -27,7 +18,6 @@ import com.yuanming.buddhism.widget.ZoomOutPageTransformer;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import me.nereo.multi_image_selector.MultiImageSelector;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.vp_horizontal_ntb)

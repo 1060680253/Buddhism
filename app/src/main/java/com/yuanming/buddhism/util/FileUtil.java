@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import com.yuanming.buddhism.app.App;
-import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.constant.Constants;
 
 import java.io.ByteArrayInputStream;

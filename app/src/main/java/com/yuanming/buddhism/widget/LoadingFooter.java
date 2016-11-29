@@ -9,7 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
-import com.yuanming.buddhism.app.App;
 import com.yuanming.buddhism.util.TDevice;
 
 

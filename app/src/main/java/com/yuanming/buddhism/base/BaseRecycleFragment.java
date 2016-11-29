@@ -131,10 +131,6 @@ public abstract class BaseRecycleFragment
         return null;
     }
 
-    protected boolean requestDataIfViewCreated() {
-        return true;
-    }
-
 
     protected abstract T getAdapter(); //这里初始化 adapter
 
@@ -194,8 +190,6 @@ public abstract class BaseRecycleFragment
                 }
             }
         });
-
-
     }
 
     protected void scrollChange(){

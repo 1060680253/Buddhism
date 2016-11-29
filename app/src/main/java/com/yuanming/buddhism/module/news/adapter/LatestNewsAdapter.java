@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseRecyclerAdapter;
 import com.yuanming.buddhism.entity.CountLog;
-import com.yuanming.buddhism.module.mine.adapter.ActivityAdapter;
 
 import butterknife.ButterKnife;
 

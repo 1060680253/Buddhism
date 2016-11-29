@@ -6,7 +6,6 @@ import com.yuanming.buddhism.base.BasePresenter;
 import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
-import com.yuanming.buddhism.module.news.adapter.BookShelfAdapter;
 import com.yuanming.buddhism.module.news.adapter.MusicNewsAdapter;
 
 import java.util.List;

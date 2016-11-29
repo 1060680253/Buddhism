@@ -2,8 +2,6 @@ package com.yuanming.buddhism.app;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.StrictMode;
-import android.support.compat.BuildConfig;
 
 import com.yuanming.buddhism.constant.Constants;
 import com.yuanming.buddhism.http.img.PictureLoader;

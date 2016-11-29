@@ -6,12 +6,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
-import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.base.SwipeRefreshFragment;
 import com.yuanming.buddhism.module.main.activity.CommonActivity;
 import com.yuanming.buddhism.module.main.activity.CommonPage;
 import com.yuanming.buddhism.module.mine.fragment.QrDialog;
-import com.yuanming.buddhism.widget.RoundImageView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

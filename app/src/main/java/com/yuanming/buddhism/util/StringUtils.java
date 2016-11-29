@@ -1,7 +1,5 @@
 package com.yuanming.buddhism.util;
 
-import android.support.v4.content.ContextCompat;
-
 import com.yuanming.buddhism.app.App;
 
 import java.io.BufferedReader;
