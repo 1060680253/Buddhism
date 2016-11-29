@@ -10,7 +10,9 @@ import android.view.View;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.module.news.fragment.LatestFragment;
+import com.yuanming.buddhism.module.news.fragment.MusicFragment;
 import com.yuanming.buddhism.module.news.fragment.PagesFragment;
+import com.yuanming.buddhism.module.news.fragment.ShelfFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +90,10 @@ public class NewsFragment extends BaseFragment {
     private Fragment getFragment(int index){
         if(index==1){
             return new PagesFragment();
+        }else if(index == 2){
+            return new ShelfFragment();
+        }else if(index == 3){
+            return new MusicFragment();
         }else{
             return new LatestFragment();
         }

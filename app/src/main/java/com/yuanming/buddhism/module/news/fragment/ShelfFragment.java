@@ -7,6 +7,7 @@ import com.yuanming.buddhism.base.BasePresenter;
 import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
+import com.yuanming.buddhism.module.news.adapter.BookShelfAdapter;
 import com.yuanming.buddhism.module.news.adapter.PageNewsAdapter;
 
 import java.util.List;
@@ -16,21 +17,16 @@ import java.util.List;
  * on phyt company
  */
 
-public class PagesFragment extends BaseRecycleFragment<PageNewsAdapter,JsonList<CountLog>,CountLog,BasePresenter> {
+public class ShelfFragment extends BaseRecycleFragment<BookShelfAdapter,JsonList<CountLog>,CountLog,BasePresenter> {
 
     @Override
     protected void requestData() {
-        mRecyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                onSuccess(null);
-            }
-        },600);
+        onSuccess(null);
     }
 
     @Override
-    protected PageNewsAdapter getAdapter() {
-        return new PageNewsAdapter(mRecyclerView);
+    protected BookShelfAdapter getAdapter() {
+        return new BookShelfAdapter(mRecyclerView);
     }
 
     @Override
@@ -39,15 +35,20 @@ public class PagesFragment extends BaseRecycleFragment<PageNewsAdapter,JsonList<
     }
 
     @Override
+    protected int getPageSize() {
+        return 9;
+    }
+
+    @Override
     protected int getLineNum() {
         return 3;
     }
 
-    @Override
-    protected View getHeadView() {
-        View headView = mInflater.inflate(R.layout.view_header_page_news,null);
-        return headView;
-    }
+//    @Override
+//    protected View getHeadView() {
+//        View headView = mInflater.inflate(R.layout.view_header_page_news,null);
+//        return headView;
+//    }
 
     @Override
     public void onItemClick(View view, int postion) {

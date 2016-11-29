@@ -19,4 +19,14 @@
         <attr name="circle_indicator_space" format="dimension" />
         <attr name="circle_indicator_indicator_radius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="CrescentoImageView">
+        <attr name="curvature" format="dimension"/>
+        <attr name="tintMode" format="integer">
+            <flag name="automatic" value="0"/>
+            <flag name="manual" value="1"/>
+        </attr>
+        <attr name="tintColor" format="color"/>
+        <attr name="tintAlpha" format="integer"/>
+    </declare-styleable>
 </resources>
