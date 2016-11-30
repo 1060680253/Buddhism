@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v4.view.ViewPager
+        android:background="@color/white"
         android:id="@+id/vp_horizontal_ntb"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -13,6 +14,7 @@
 
     <com.brioal.bottomtab.view.BottomLayout
         android:id="@+id/main_tab"
+        android:background="@color/white"
         app:inCircleColor="#71262A"
         app:exCircleColor="#8871292A"
         android:layout_width="match_parent"
