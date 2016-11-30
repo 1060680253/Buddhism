@@ -15,6 +15,7 @@ import com.yuanming.buddhism.module.news.fragment.LatestFragment;
 import com.yuanming.buddhism.module.news.fragment.MusicFragment;
 import com.yuanming.buddhism.module.news.fragment.PagesFragment;
 import com.yuanming.buddhism.module.news.fragment.ShelfFragment;
+import com.yuanming.buddhism.module.news.fragment.VideoNewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +100,8 @@ public class NewsFragment extends BaseFragment {
             recycleFragment = new ShelfFragment();
         }else if(index == 3){
             recycleFragment =  new MusicFragment();
+        }else if(index == 4){
+            recycleFragment =  new VideoNewsFragment();
         }else{
             recycleFragment = new LatestFragment();
         }

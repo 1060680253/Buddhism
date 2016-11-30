@@ -11,7 +11,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bottomtab" />
             <option value="$PROJECT_DIR$/filter-lib" />
+            <option value="$PROJECT_DIR$/gsyVideoPlayer" />
             <option value="$PROJECT_DIR$/multi-image-selector" />
+            <option value="$PROJECT_DIR$/photoview-library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

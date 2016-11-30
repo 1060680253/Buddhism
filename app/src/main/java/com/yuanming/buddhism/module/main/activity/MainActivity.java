@@ -8,6 +8,8 @@ import android.util.SparseArray;
 import com.brioal.bottomtab.entity.TabEntity;
 import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
 import com.brioal.bottomtab.view.BottomLayout;
+import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
@@ -90,6 +92,20 @@ public class MainActivity extends BaseActivity {
 //            }
 //        }).check();
 //    }
+
+    @Override
+    public void onBackPressed() {
+        if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        GSYVideoPlayer.releaseAllVideos();
+    }
 
     @Override
     protected boolean hasActionBar() {

@@ -21,4 +21,5 @@
     <color name="mainColor">#71262A</color>
     <color name="black_translucent">#50000000</color>
     <color name="gray_light">#c4c3c9</color>
+    <color name="day_colorPrimary">#24cf5f</color>
 </resources>

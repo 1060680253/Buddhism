@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Buddhism</string>
+    <string name="app_name">掌中佛</string>
     <string name="loading">加载中...</string>
     <string name="loading_no_more">已经到底了</string>
     <string name="actionbar_title_counts">恭请报数</string>

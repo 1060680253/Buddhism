@@ -135,8 +135,8 @@ public abstract class BaseRecycleFragment
     protected abstract T getAdapter(); //这里初始化 adapter
 
 
-    private RecyclerView.LayoutManager manager;
-    protected RecyclerView.LayoutManager getLayoutManager() {
+    private StaggeredGridLayoutManager manager;
+    protected StaggeredGridLayoutManager getLayoutManager() {
         if(manager==null){
             manager = new StaggeredGridLayoutManager(getLineNum(), StaggeredGridLayoutManager.VERTICAL);
         }
