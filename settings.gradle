@@ -1,1 +1,1 @@
-include ':app', ':bottomtab', ':filter-lib', ':multi-image-selector'
+include ':app', ':bottomtab', ':filter-lib', ':multi-image-selector', ':gsyVideoPlayer'
