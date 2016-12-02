@@ -29,4 +29,10 @@
         <attr name="tintColor" format="color"/>
         <attr name="tintAlpha" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="en_search">
+        <attr name="search_line_color" format="color" />
+        <attr name="search_line_width" format="integer" />
+        <attr name="search_dot_size" format="integer" />
+    </declare-styleable>
 </resources>
