@@ -11,6 +11,7 @@ import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.interf.HttpRequestListener;
 import com.yuanming.buddhism.interf.RecyclerItemClickListener;
 import com.yuanming.buddhism.util.TDevice;
+import com.yuanming.buddhism.widget.CustomPtrHeader;
 import com.yuanming.buddhism.widget.EmptyLayout;
 import com.yuanming.buddhism.widget.LoadingFooter;
 import com.yuanming.buddhism.widget.recycler.HeaderAndFooterRecyclerViewAdapter;
@@ -20,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * BaseRecyclerHeadFragment 抽象出来作为模板类
@@ -39,7 +43,7 @@ public abstract class BaseRecycleFragment
     @BindView(R.id.recycler_list)
     protected RecyclerView mRecyclerView;
     @BindView(R.id.swiperefreshlayout)
-    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected PtrClassicFrameLayout mSwipeRefreshLayout;
     @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
     protected T mAdapter;
@@ -65,10 +69,21 @@ public abstract class BaseRecycleFragment
             mErrorLayout.setEmptyDrawable(getEmptyDrawable());
         }
         mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
-        mSwipeRefreshLayout.setColorSchemeResources(
-                R.color.swiperefresh_color1, R.color.swiperefresh_color2,
-                R.color.swiperefresh_color3, R.color.swiperefresh_color4);
+//        mSwipeRefreshLayout.setOnRefreshListener(this);
+//        mSwipeRefreshLayout.setColorSchemeResources(
+//                R.color.swiperefresh_color1, R.color.swiperefresh_color2,
+//                R.color.swiperefresh_color3, R.color.swiperefresh_color4);
+        mSwipeRefreshLayout.setPtrHandler(new PtrDefaultHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                onRefresh();
+            }
+        });
+        mSwipeRefreshLayout.setOffsetToRefresh(200);
+//        mSwipeRefreshLayout.autoRefresh(true);
+        CustomPtrHeader header = new CustomPtrHeader(view.getContext(),1);
+        mSwipeRefreshLayout.setHeaderView(header);
+        mSwipeRefreshLayout.addPtrUIHandler(header);
         mSwipeRefreshLayout.setEnabled(false);
         if(isNeedRefresh()){
             mSwipeRefreshLayout.setEnabled(true);
@@ -86,7 +101,6 @@ public abstract class BaseRecycleFragment
             }
         });
         initRecyclerView(view);
-        onRefresh();
     }
 
     protected boolean isNeedRefresh(){
@@ -202,14 +216,15 @@ public abstract class BaseRecycleFragment
 
     @Override
     public void onLazyLoad() {
-        if(isShowRefresh()){
-            mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-        }else{
-            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-            showWaitDialog();
-        }
-        mState = STATE_NONE;
-        requestData();
+//        if(isShowRefresh()){
+//            mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+//        }else{
+//            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+//            showWaitDialog();
+//        }
+//        mState = STATE_NONE;
+//        requestData();
+        mSwipeRefreshLayout.autoRefresh(true);
     }
 
     public void onRefresh() {
@@ -241,7 +256,7 @@ public abstract class BaseRecycleFragment
      */
     private void setSwipeRefreshLoadingState() {
         if (mSwipeRefreshLayout != null) {
-            mSwipeRefreshLayout.setRefreshing(true);
+            mSwipeRefreshLayout.refreshComplete();
             // 防止多次重复刷新
             mSwipeRefreshLayout.setEnabled(false);
         }
@@ -252,7 +267,7 @@ public abstract class BaseRecycleFragment
      */
     private void setSwipeRefreshLoadedState() {
         if (mSwipeRefreshLayout != null) {
-            mSwipeRefreshLayout.setRefreshing(false);
+            mSwipeRefreshLayout.refreshComplete();
             mSwipeRefreshLayout.setEnabled(true);
         }
     }

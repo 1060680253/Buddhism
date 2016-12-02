@@ -18,9 +18,11 @@ import com.yuanming.buddhism.base.BasePresenter;
 import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
+import com.yuanming.buddhism.module.news.adapter.HorizontalPagerAdapter;
 import com.yuanming.buddhism.module.news.adapter.MusicNewsAdapter;
 import com.yuanming.buddhism.module.news.adapter.VideoNewsAdapter;
 import com.yuanming.buddhism.util.TDevice;
+import com.yuanming.buddhism.widget.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 
 import java.util.List;
 
@@ -59,17 +61,6 @@ public class VideoNewsFragment extends BaseRecycleFragment<VideoNewsAdapter,Json
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        // 设置一个exit transition
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getFActivity().getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-//            getFActivity().getWindow().setEnterTransition(new Explode());
-//            getFActivity().getWindow().setExitTransition(new Explode());
-//        }
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.fragment_recycler_video;
     }
@@ -89,11 +80,14 @@ public class VideoNewsFragment extends BaseRecycleFragment<VideoNewsAdapter,Json
         return CountLog.getDatas();
     }
 
-//    @Override
-//    protected View getHeadView() {
-//        View headView = mInflater.inflate(R.layout.view_header_page_news,null);
-//        return headView;
-//    }
+    @Override
+    protected View getHeadView() {
+        View headView = mInflater.inflate(R.layout.view_header_video,null);
+        HorizontalInfiniteCycleViewPager horizontalInfiniteCycleViewPager =
+                (HorizontalInfiniteCycleViewPager) headView.findViewById(R.id.hicvp);
+        horizontalInfiniteCycleViewPager.setAdapter(new HorizontalPagerAdapter(getContext()));
+        return headView;
+    }
 
     @Override
     public void onItemClick(View view, int postion) {

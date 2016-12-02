@@ -47,7 +47,7 @@ public class LatestFragment extends BaseRecycleFragment<LatestNewsAdapter,JsonLi
     protected View getHeadView() {
         View headView = mInflater.inflate(R.layout.view_header_latest_news,null);
         mAdView = (ImageCycleView)headView.findViewById(R.id.ad_view);
-        mAdView.setRefreshLayout(mSwipeRefreshLayout);
+//        mAdView.setRefreshLayout(mSwipeRefreshLayout);
         ArrayList<ADInfo> adInfos = new ArrayList<>();
         adInfos.add(new ADInfo("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2047421984,4261114811&fm=116&gp=0.jpg"));
         adInfos.add(new ADInfo("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=248160052,2154302438&fm=116&gp=0.jpg"));

@@ -20,12 +20,7 @@ public class PagesFragment extends BaseRecycleFragment<PageNewsAdapter,JsonList<
 
     @Override
     protected void requestData() {
-        mRecyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                onSuccess(null);
-            }
-        },600);
+        onSuccess(null);
     }
 
     @Override
