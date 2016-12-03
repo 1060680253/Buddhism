@@ -18,19 +18,19 @@ public class HorizontalPagerAdapter extends PagerAdapter {
 
     private final Utils.LibraryObject[] LIBRARIES = new Utils.LibraryObject[]{
             new Utils.LibraryObject(
-                    R.drawable.fojiao,
+                    R.drawable.chant_list_title_img_1,
                     "Strategy"
             ),
             new Utils.LibraryObject(
-                    R.drawable.fojiao,
+                    R.drawable.chant_list_title_img_2,
                     "Design"
             ),
             new Utils.LibraryObject(
-                    R.drawable.fojiao,
+                    R.drawable.chant_list_title_img_3,
                     "Development"
             ),
             new Utils.LibraryObject(
-                    R.drawable.fojiao,
+                    R.drawable.chant_list_title_img_4,
                     "Quality Assurance"
             )
     };

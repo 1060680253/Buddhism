@@ -1,88 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <android.support.v7.widget.CardView
+
+    <com.yuanming.buddhism.widget.ObservableScrollView
+        android:id="@+id/scrollView"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@drawable/background_read_day"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/fill_fill"
+            android:background="@color/white">
+
+            <com.yuanming.buddhism.widget.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
+                android:id="@+id/hicvp"
+                android:layout_width="match_parent"
+                android:layout_height="288dp"
+                app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
+                app:icvp_scroll_duration="250"
+                app:icvp_medium_scaled="true"/>
+            <!--app:icvp_center_page_scale_offset="30dp"-->
+            <!--app:icvp_min_page_scale_offset="5dp"-->
+
+            <!--app:icvp_max_page_scale="0.8"-->
+            <!--app:icvp_min_page_scale="0.55"-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="8dp"
+                android:layout_height="44dp"
+                android:background="@drawable/edittext_background"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/import_text"
+                        android:text="掌中佛头条"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="1.5px"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorAccent" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_loading_headline"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="加载中..."
+                            android:textColor="@color/import_text"
+                            android:textSize="14sp" />
+
+                        <com.yuanming.buddhism.widget.SwitcherView
+                            android:id="@+id/switcherView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            app:switcherRollingTime="3000"
+                            app:switcherTextColor="@color/import_text"
+                            app:switcherTextSize="14sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    style="@style/fill_fill"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/background_read_day" />
+
+                <RelativeLayout
+                    android:padding="16dp"
+                    style="@style/fill_fill">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:textSize="24sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="佛友圈"/>
+
+                    <ImageView
+                        style="@style/wrap_wrap"
+                        android:src="@drawable/tiaozhuan"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    style="@style/fill_fill"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/background_read_pink" />
+
+                <RelativeLayout
+                    android:padding="16dp"
+                    style="@style/fill_fill">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:textSize="24sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="活动"/>
+
+                    <ImageView
+                        style="@style/wrap_wrap"
+                        android:src="@drawable/tiaozhuan"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    style="@style/fill_fill"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/background_read_day" />
+
+                <RelativeLayout
+                    android:padding="16dp"
+                    style="@style/fill_fill">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:textSize="24sp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="附近"/>
+
+                    <ImageView
+                        style="@style/wrap_wrap"
+                        android:src="@drawable/tiaozhuan"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </com.yuanming.buddhism.widget.ObservableScrollView>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/transparent">
 
         <RelativeLayout
-            android:padding="16dp"
-            style="@style/fill_fill">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <TextView
-                style="@style/wrap_wrap"
-                android:textSize="24sp"
+                android:id="@+id/add_friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:textColor="@color/colorPrimary"
-                android:text="佛友圈"/>
+                android:layout_alignParentRight="true"
+                android:textColor="@color/import_text"
+                android:textSize="16sp"
+                android:layout_marginRight="16dp"
+                android:text="添加好友" />
 
-            <ImageView
-                style="@style/wrap_wrap"
-                android:src="@drawable/tiaozhuan"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true" />
-
+            <android.support.v7.widget.SearchView
+                android:layout_toLeftOf="@+id/add_friends"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="16dp"
+                style="@style/fill_fill"
+                android:background="@color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/searchView" />
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@drawable/background_read_pink"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp">
-
-        <RelativeLayout
-            android:padding="16dp"
-            style="@style/fill_fill">
-
-            <TextView
-                style="@style/wrap_wrap"
-                android:textSize="24sp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/colorPrimary"
-                android:text="活动"/>
-
-            <ImageView
-                style="@style/wrap_wrap"
-                android:src="@drawable/tiaozhuan"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@drawable/background_read_day"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp">
-
-        <RelativeLayout
-            android:padding="16dp"
-            style="@style/fill_fill">
-
-            <TextView
-                style="@style/wrap_wrap"
-                android:textSize="24sp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/colorPrimary"
-                android:text="附近"/>
-
-            <ImageView
-                style="@style/wrap_wrap"
-                android:src="@drawable/tiaozhuan"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+    </android.support.v7.widget.Toolbar>
+</RelativeLayout>

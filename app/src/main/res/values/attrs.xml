@@ -34,4 +34,10 @@
         <attr name="search_line_width" format="integer" />
         <attr name="search_dot_size" format="integer" />
     </declare-styleable>
+    <declare-styleable name="SwitcherView">
+        <attr format="reference|color" name="switcherTextColor"/>
+        <attr format="dimension" name="switcherTextSize"/>
+        <attr format="integer" name="switcherRollingTime"/>
+    </declare-styleable>
+
 </resources>

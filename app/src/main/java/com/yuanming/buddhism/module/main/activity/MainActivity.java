@@ -12,6 +12,7 @@ import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseActivity;
+import com.yuanming.buddhism.module.main.fragment.FindingFragment;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
 import com.yuanming.buddhism.module.main.fragment.NewsFragment;
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
         fragments = new SparseArray<>();
         fragments.put(0,new NewsFragment());
         fragments.put(1,new PracticeFragment());
-        fragments.put(2,new MainFragment());
+        fragments.put(2,new FindingFragment());
         fragments.put(3,new MineFragment());
         final ArrayList<TabEntity> mList = new ArrayList<>();
         mList.add(new TabEntity(R.mipmap.ic_launcher, "资讯"));
