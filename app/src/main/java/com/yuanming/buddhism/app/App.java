@@ -7,6 +7,8 @@ import com.yuanming.buddhism.constant.Constants;
 import com.yuanming.buddhism.http.img.PictureLoader;
 import com.yuanming.buddhism.util.SPUtils;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
  * Created by Administrator on 2016/11/2.
  */
@@ -28,7 +30,9 @@ public class App extends Application {
 //        }
         super.onCreate();
         instance = this;
+//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/PMingLiU.ttf").setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath).build());
         PictureLoader.getInstance().initImageLoader(instance);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/PMingLiU.ttf").setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath).build());
     }
 
     public Context getContext(){

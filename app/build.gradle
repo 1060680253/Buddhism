@@ -48,4 +48,6 @@ dependencies {
     compile project(':photoview-library')
     compile 'in.srain.cube:ultra-ptr:1.0.11'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //字体
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 }

@@ -28,6 +28,7 @@ import java.util.Set;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Activity基类
@@ -380,5 +381,10 @@ public abstract class BaseActivity extends AppCompatActivity implements DialogCo
             finish();
         }
 
+    }
+
+        @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

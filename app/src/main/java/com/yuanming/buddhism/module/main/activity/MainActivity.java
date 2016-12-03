@@ -15,6 +15,7 @@ import com.yuanming.buddhism.base.BaseActivity;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.main.fragment.MineFragment;
 import com.yuanming.buddhism.module.main.fragment.NewsFragment;
+import com.yuanming.buddhism.module.main.fragment.PracticeFragment;
 import com.yuanming.buddhism.widget.ZoomOutPageTransformer;
 import com.yuanming.buddhism.widget.update.UpdateAgent;
 import com.yuanming.buddhism.widget.update.UpdateInfo;
@@ -35,7 +36,7 @@ public class MainActivity extends BaseActivity {
     public void initView() {
         fragments = new SparseArray<>();
         fragments.put(0,new NewsFragment());
-        fragments.put(1,new MainFragment());
+        fragments.put(1,new PracticeFragment());
         fragments.put(2,new MainFragment());
         fragments.put(3,new MineFragment());
         final ArrayList<TabEntity> mList = new ArrayList<>();

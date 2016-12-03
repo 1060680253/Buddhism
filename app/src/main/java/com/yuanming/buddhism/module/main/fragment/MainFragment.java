@@ -1,9 +1,6 @@
 package com.yuanming.buddhism.module.main.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.yuanming.buddhism.R;
@@ -13,7 +10,6 @@ import com.yuanming.buddhism.widget.update.UpdateInfo;
 import com.yuanming.buddhism.widget.update.UpdateManager;
 import com.yuanming.buddhism.widget.update.UpdateUtil;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -26,7 +22,7 @@ public class MainFragment extends BaseFragment {
     String mUpdateUrl = "http://mobile.ac.qq.com/qqcomic_android.apk";
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_find_out;
+        return R.layout.fragment_main;
     }
 
     @OnClick({R.id.check_update, R.id.check_update_cant_ignore, R.id.check_update_force, R.id.check_update_silent, R.id.check_update_no_newer, R.id.clean})

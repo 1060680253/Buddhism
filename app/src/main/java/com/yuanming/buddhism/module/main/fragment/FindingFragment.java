@@ -1,5 +1,6 @@
 package com.yuanming.buddhism.module.main.fragment;
 
+import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 
 /**
@@ -11,6 +12,6 @@ public class FindingFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_find_out;
     }
 }

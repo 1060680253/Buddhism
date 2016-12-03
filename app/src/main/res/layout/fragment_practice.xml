@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" style="@style/fill_fill">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@drawable/main_top_bg">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/top_state_practice" />
+
+
+        <TextView
+            android:layout_centerInParent="true"
+            style="@style/wrap_wrap"
+            android:textSize="28sp"
+            android:textColor="@color/swiperefresh_color2"
+            android:text="掌中佛修行"/>
+
+        <com.yuanming.buddhism.widget.RoundImageView
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fo_bg" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal" style="@style/fill_fill"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <!--android:background="@drawable/complete_state_practice"-->
+            <ImageView
+                style="@style/fill_fill"
+                android:scaleType="fitXY"
+                android:src="@drawable/main_item_dztk" />
+            <TextView
+                style="@style/wrap_wrap"
+                android:ems="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:textSize="22sp"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/swiperefresh_color2"
+                android:text="上师窍诀" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent" />
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <!--android:background="@drawable/complete_state_practice"-->
+            <ImageView
+                style="@style/fill_fill"
+                android:scaleType="fitXY"
+                android:src="@drawable/main_item_fycd" />
+            <TextView
+                style="@style/wrap_wrap"
+                android:ems="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:textSize="22sp"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/swiperefresh_color2"
+                android:text="上师教法" />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent" />
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <!--android:background="@drawable/complete_state_practice"-->
+            <ImageView
+                style="@style/fill_fill"
+                android:scaleType="fitXY"
+                android:src="@drawable/main_item_lxwm" />
+            <TextView
+                style="@style/wrap_wrap"
+                android:ems="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:textSize="22sp"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/swiperefresh_color2"
+                android:text="彿行事业" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
