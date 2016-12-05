@@ -62,5 +62,10 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="AppTheme.Splash">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@drawable/fo_bg</item>
+    </style>
+
 
 </resources>

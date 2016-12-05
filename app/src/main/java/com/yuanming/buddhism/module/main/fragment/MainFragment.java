@@ -1,15 +1,23 @@
 package com.yuanming.buddhism.module.main.fragment;
 
+import android.animation.Animator;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.util.TDevice;
 import com.yuanming.buddhism.widget.update.UpdateAgent;
 import com.yuanming.buddhism.widget.update.UpdateInfo;
 import com.yuanming.buddhism.widget.update.UpdateManager;
 import com.yuanming.buddhism.widget.update.UpdateUtil;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -20,6 +28,102 @@ public class MainFragment extends BaseFragment {
     String mCheckUrl = "http://client.waimai.baidu.com/message/updatetag";
 
     String mUpdateUrl = "http://mobile.ac.qq.com/qqcomic_android.apk";
+    @BindView(R.id.rl_img)
+    RelativeLayout rl_img;
+
+    @BindView(R.id.rl_img_2)
+    RelativeLayout rl_img_2;
+    @BindView(R.id.rl_img_3)
+    RelativeLayout rl_img_3;
+    @BindView(R.id.rl_img_4)
+    RelativeLayout rl_img_4;
+    @BindView(R.id.rl_total)
+    RelativeLayout rl_total;
+    private float finalRadius;
+    @Override
+    public void initView(View view) {
+        super.initView(view);
+        finalRadius = (float) Math.hypot(TDevice.dpToPixel(128), TDevice.dpToPixel(128));
+        rl_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startRevealAnimation(rl_img_2);
+            }
+        });
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void startRevealAnimation(final View view) {
+        int potX,potY;
+        final View last_view;
+        switch (view.getId()){
+            case R.id.rl_img_2:
+                last_view = rl_img;
+                potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)/2));
+                potY = (int)last_view.getY();
+                break;
+            case R.id.rl_img_3:
+                last_view = rl_img_2;
+                potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)));
+                potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)/2));
+                break;
+            case R.id.rl_img_4:
+                last_view = rl_img_3;
+                potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)/2));
+                potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)));
+                break;
+            default:
+                last_view = rl_img_4;
+                potX = (int)(last_view.getX());
+                potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)/2));
+                break;
+        }
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, potX, potY, 0, finalRadius);
+        anim.setInterpolator(AnimationUtils.loadInterpolator(mView.getContext(),
+                android.R.interpolator.fast_out_linear_in));
+        anim.setDuration(1200);
+
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                last_view.setVisibility(View.GONE);
+                rl_total.removeView(last_view);
+                rl_total.addView(last_view,3);
+                switch (view.getId()){
+                    case R.id.rl_img_2:
+                        startRevealAnimation(rl_img_3);
+                        break;
+                    case R.id.rl_img_3:
+                        startRevealAnimation(rl_img_4);
+                        break;
+                    case R.id.rl_img_4:
+                        startRevealAnimation(rl_img);
+                        break;
+                    default:
+                        startRevealAnimation(rl_img_2);
+                        break;
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
+        view.setVisibility(View.VISIBLE);
+        anim.start();
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fo_bg" />
+
+    <TextView
+        android:id="@+id/splah_text"
+        android:visibility="invisible"
+        style="@style/wrap_wrap"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="68dp"
+        android:textSize="58sp"
+        android:textColor="@color/colorAccent"
+        android:text="掌中佛"
+        android:ems="1"/>
+
+</RelativeLayout>

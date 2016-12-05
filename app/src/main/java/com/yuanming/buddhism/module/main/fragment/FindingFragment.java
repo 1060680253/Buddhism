@@ -7,10 +7,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.module.main.activity.CommonActivity;
+import com.yuanming.buddhism.module.main.activity.CommonPage;
 import com.yuanming.buddhism.module.news.adapter.HorizontalPagerAdapter;
 import com.yuanming.buddhism.util.TDevice;
 import com.yuanming.buddhism.widget.ObservableScrollView;
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by chenghuan on 2016/11/25.
@@ -73,11 +78,11 @@ public class FindingFragment extends BaseFragment implements ObservableScrollVie
         float headerBarOffsetY = headerHeight - minHeaderHeight;//Toolbar与header高度的差值
         float offset = 1 - Math.max((headerBarOffsetY - scrollY) / headerBarOffsetY, 0f);
         if (offset == 1 || offset > 1) {
-            searchView.setBackground(ContextCompat.getDrawable(mView.getContext(),R.drawable.edittext_background));
-            addFriends.setTextColor(ContextCompat.getColor(mView.getContext(),R.color.white));
+            searchView.setBackground(ContextCompat.getDrawable(mView.getContext(), R.drawable.edittext_background));
+            addFriends.setTextColor(ContextCompat.getColor(mView.getContext(), R.color.white));
         } else {
-            searchView.setBackgroundColor(ContextCompat.getColor(mView.getContext(),R.color.transparent));
-            addFriends.setTextColor(ContextCompat.getColor(mView.getContext(),R.color.import_text));
+            searchView.setBackgroundColor(ContextCompat.getColor(mView.getContext(), R.color.transparent));
+            addFriends.setTextColor(ContextCompat.getColor(mView.getContext(), R.color.import_text));
         }
         toolBar.setBackgroundColor(getColorWithAlpha(offset, baseColor));
     }
@@ -86,5 +91,16 @@ public class FindingFragment extends BaseFragment implements ObservableScrollVie
         int a = Math.min(255, Math.max(0, (int) (alpha * 255.0F))) << 24;
         int rgb = 16777215 & baseColor;
         return a + rgb;
+    }
+
+    @OnClick({R.id.cv_friend_circle, R.id.cv_activity_circle})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.cv_friend_circle:
+                CommonActivity.startActivity(view.getContext(), CommonPage.MAIN);
+                break;
+            case R.id.cv_activity_circle:
+                break;
+        }
     }
 }
