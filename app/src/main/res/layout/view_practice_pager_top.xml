@@ -88,8 +88,7 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:gravity="center"
-        android:background="@color/half_transparent">
+        android:gravity="center">
 
         <ImageView
             style="@style/wrap_wrap"

@@ -10,6 +10,7 @@
         android:background="@drawable/main_top_bg">
 
         <ImageView
+            android:id="@+id/iv_partice"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_centerVertical="true"

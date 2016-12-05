@@ -2,6 +2,9 @@ package com.yuanming.buddhism.module.main.fragment;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.entity.MsgEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.OnClick;
 

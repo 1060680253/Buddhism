@@ -2,6 +2,9 @@ package com.yuanming.buddhism.module.main.fragment;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.entity.MsgEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.OnClick;
 
@@ -19,6 +22,5 @@ public class PracticeBottomFragment extends BaseFragment {
 
     @OnClick(R.id.ll_back_page)
     public void onClick() {
-
     }
 }

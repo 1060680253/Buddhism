@@ -7,9 +7,14 @@ import android.view.View;
 
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
+import com.yuanming.buddhism.entity.MsgEvent;
 import com.yuanming.buddhism.widget.VerticalViewPager;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by chenghuan on 2016/12/3.
@@ -28,7 +33,9 @@ public class PracticeFragment extends BaseFragment {
             return new PracticeBottomFragment();
         }
     }
-
+    @OnClick(R.id.iv_partice)
+    public void onClick() {
+    }
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_practice;

@@ -50,4 +50,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //字体
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
