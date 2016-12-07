@@ -1,9 +1,16 @@
 package com.yuanming.buddhism.module.main.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.SparseArray;
+import android.view.Gravity;
+import android.view.Window;
 
 import com.brioal.bottomtab.entity.TabEntity;
 import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
@@ -94,6 +101,33 @@ public class MainActivity extends BaseActivity {
 //            }
 //        }).check();
 //    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        setTransiton();
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
+    private void setTransiton() {
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        getWindow().setAllowEnterTransitionOverlap(false);
+        getWindow().setAllowReturnTransitionOverlap(false);
+        Fade fade = new Fade();
+        fade.setDuration(800);
+        getWindow().setExitTransition(fade);
+
+
+        Slide slide = new Slide(Gravity.BOTTOM);
+        slide.setDuration(500);
+        getWindow().setReenterTransition(slide);
+
+    }
+
+    @Override
+    public void onActivityReenter(int requestCode, Intent data) {
+        super.onActivityReenter(requestCode, data);
+    }
 
     @Override
     public void onBackPressed() {

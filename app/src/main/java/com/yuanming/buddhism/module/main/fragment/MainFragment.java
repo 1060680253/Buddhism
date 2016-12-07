@@ -5,7 +5,9 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -52,76 +54,128 @@ public class MainFragment extends BaseFragment {
         });
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void startRevealAnimation(final View view) {
         int potX,potY;
+        float fromX,toX,fromY,toY;
         final View last_view;
         switch (view.getId()){
             case R.id.rl_img_2:
+                fromX = toX = 0f;
+                fromY = -2f;
+                toY = 0f;
                 last_view = rl_img;
                 potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)/2));
                 potY = (int)last_view.getY();
                 break;
             case R.id.rl_img_3:
+                fromX = 2f;
+                toX = 0f;
+                fromY = toY = 0f;
                 last_view = rl_img_2;
                 potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)));
                 potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)/2));
                 break;
             case R.id.rl_img_4:
+                fromX = toX = 0f;
+                fromY = 2f;
+                toY = 0f;
                 last_view = rl_img_3;
                 potX = (int)(last_view.getX()+(TDevice.dpToPixel(128)/2));
                 potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)));
                 break;
             default:
+                fromX = -2f;
+                toX = 0f;
+                fromY = toY = 0f;
                 last_view = rl_img_4;
                 potX = (int)(last_view.getX());
                 potY = (int)(last_view.getY()+(TDevice.dpToPixel(128)/2));
                 break;
         }
-        Animator anim = ViewAnimationUtils.createCircularReveal(view, potX, potY, 0, finalRadius);
-        anim.setInterpolator(AnimationUtils.loadInterpolator(mView.getContext(),
-                android.R.interpolator.fast_out_linear_in));
-        anim.setDuration(1200);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Animator anim = ViewAnimationUtils.createCircularReveal(view, potX, potY, 0, finalRadius);
+            anim.setInterpolator(AnimationUtils.loadInterpolator(mView.getContext(),
+                    android.R.interpolator.fast_out_linear_in));
+            anim.setDuration(1200);
 
-        anim.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
+            anim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                last_view.setVisibility(View.GONE);
-                rl_total.removeView(last_view);
-                rl_total.addView(last_view,3);
-                switch (view.getId()){
-                    case R.id.rl_img_2:
-                        startRevealAnimation(rl_img_3);
-                        break;
-                    case R.id.rl_img_3:
-                        startRevealAnimation(rl_img_4);
-                        break;
-                    case R.id.rl_img_4:
-                        startRevealAnimation(rl_img);
-                        break;
-                    default:
-                        startRevealAnimation(rl_img_2);
-                        break;
                 }
-            }
 
-            @Override
-            public void onAnimationCancel(Animator animator) {
+                @Override
+                public void onAnimationEnd(Animator animator) {
+                    last_view.setVisibility(View.GONE);
+                    rl_total.removeView(last_view);
+                    rl_total.addView(last_view,3);
+                    switch (view.getId()){
+                        case R.id.rl_img_2:
+                            startRevealAnimation(rl_img_3);
+                            break;
+                        case R.id.rl_img_3:
+                            startRevealAnimation(rl_img_4);
+                            break;
+                        case R.id.rl_img_4:
+                            startRevealAnimation(rl_img);
+                            break;
+                        default:
+                            startRevealAnimation(rl_img_2);
+                            break;
+                    }
+                }
 
-            }
+                @Override
+                public void onAnimationCancel(Animator animator) {
 
-            @Override
-            public void onAnimationRepeat(Animator animator) {
+                }
 
-            }
-        });
-        view.setVisibility(View.VISIBLE);
-        anim.start();
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
+
+            anim.start();
+        }else{
+            TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF,fromX,Animation.RELATIVE_TO_SELF,toX,Animation.RELATIVE_TO_SELF,fromY,Animation.RELATIVE_TO_SELF,toY);
+            translateAnimation.setDuration(1200);
+            translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    last_view.setVisibility(View.GONE);
+                    rl_total.removeView(last_view);
+                    rl_total.addView(last_view,3);
+                    switch (view.getId()){
+                        case R.id.rl_img_2:
+                            startRevealAnimation(rl_img_3);
+                            break;
+                        case R.id.rl_img_3:
+                            startRevealAnimation(rl_img_4);
+                            break;
+                        case R.id.rl_img_4:
+                            startRevealAnimation(rl_img);
+                            break;
+                        default:
+                            startRevealAnimation(rl_img_2);
+                            break;
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            view.startAnimation(translateAnimation);
+            view.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override

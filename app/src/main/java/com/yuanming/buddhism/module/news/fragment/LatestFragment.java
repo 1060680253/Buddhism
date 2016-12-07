@@ -1,5 +1,7 @@
 package com.yuanming.buddhism.module.news.fragment;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -9,6 +11,7 @@ import com.yuanming.buddhism.base.BaseRecycleFragment;
 import com.yuanming.buddhism.entity.CountLog;
 import com.yuanming.buddhism.entity.JsonList;
 import com.yuanming.buddhism.http.img.PictureLoader;
+import com.yuanming.buddhism.module.main.fragment.DetailActivity;
 import com.yuanming.buddhism.module.news.adapter.LatestNewsAdapter;
 import com.yuanming.buddhism.widget.imagecycle.ADInfo;
 import com.yuanming.buddhism.widget.imagecycle.ImageCycleView;
@@ -40,7 +43,7 @@ public class LatestFragment extends BaseRecycleFragment<LatestNewsAdapter,JsonLi
 
     @Override
     public void onItemClick(View view, int postion) {
-
+        startActivity(new Intent(view.getContext(), DetailActivity.class), ActivityOptions.makeSceneTransitionAnimation(getActivity(), view.findViewById(R.id.iv_detail), "share").toBundle());
     }
     private ImageCycleView mAdView;
     @Override

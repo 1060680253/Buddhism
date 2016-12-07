@@ -24,4 +24,6 @@
     <color name="day_colorPrimary">#24cf5f</color>
     <color name="background_light">#fafafa</color>
     <color name="half_transparent">#bf000000</color>
+    <color name="album_image_photo_tint">#2f505050</color>
+    <color name="background_image_photo_tint">#4f808080</color>
 </resources>

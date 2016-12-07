@@ -39,4 +39,6 @@
     <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
     <string name="path_search">M13.3843083,13.3956843 C11.233862,15.5399983 7.7581039,15.5381046 5.61000013,13.3900003 C3.46000004,11.2399998 3.46000004,7.76000023 5.61000013,5.61000013 C7.76000023,3.46000004 11.2400007,3.46000004 13.3900003,5.61000013 C15.54,7.76000023 15.5400009,11.2400007 13.3900003,13.3900003 C13.388104,13.3918967 13.3862067,13.3937913 13.3843083,13.3956843 C15.1427975,15.1834093 19.6826174,19.798706 19.6826172,19.7987061 L13.3843085,13.3956846 L13.3843083,13.3956843 Z</string>
 
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget interdum ante, at adipiscing ipsum. Phasellus pellentesque commodo libero, id volutpat ipsum pretium at. Duis sit amet egestas nisi. Donec id dui eu lectus volutpat posuere. Nunc et viverra ante, vel malesuada tortor. Pellentesque ut interdum tellus, sit amet hendrerit dui. Sed accumsan, nisl eu tincidunt tempus, neque lorem sodales odio, non tristique orci lorem quis augue. In sodales rutrum faucibus. Morbi egestas massa sit amet ante pellentesque, eu laoreet ante congue. Sed aliquet, dolor ac placerat pellentesque, risus leo fermentum quam, eget eleifend tellus nulla euismod tellus. Donec adipiscing cursus leo et faucibus. Aliquam erat volutpat.</string>
+
 </resources>
