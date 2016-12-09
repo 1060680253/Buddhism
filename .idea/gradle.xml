@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/infinitecycleviewpager" />
             <option value="$PROJECT_DIR$/multi-image-selector" />
             <option value="$PROJECT_DIR$/photoview-library" />
+            <option value="$PROJECT_DIR$/zxing-core" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

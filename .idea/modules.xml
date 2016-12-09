@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" filepath="$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" />
       <module fileurl="file://$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" filepath="$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoview-library/photoview-library.iml" filepath="$PROJECT_DIR$/photoview-library/photoview-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing-core/zxing-core.iml" filepath="$PROJECT_DIR$/zxing-core/zxing-core.iml" />
     </modules>
   </component>
 </project>

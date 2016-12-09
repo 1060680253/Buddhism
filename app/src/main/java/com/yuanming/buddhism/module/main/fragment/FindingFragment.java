@@ -1,5 +1,6 @@
 package com.yuanming.buddhism.module.main.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SearchView;
@@ -15,6 +16,7 @@ import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.module.main.activity.CommonActivity;
 import com.yuanming.buddhism.module.main.activity.CommonPage;
+import com.yuanming.buddhism.module.main.activity.CustomViewFinderScannerActivity;
 import com.yuanming.buddhism.module.news.adapter.HorizontalPagerAdapter;
 import com.yuanming.buddhism.util.TDevice;
 import com.yuanming.buddhism.widget.ObservableScrollView;
@@ -100,6 +102,7 @@ public class FindingFragment extends BaseFragment implements ObservableScrollVie
                 CommonActivity.startActivity(view.getContext(), CommonPage.MAIN);
                 break;
             case R.id.cv_activity_circle:
+                startActivity(new Intent(view.getContext(), CustomViewFinderScannerActivity.class));
                 break;
         }
     }

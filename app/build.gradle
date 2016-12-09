@@ -50,4 +50,6 @@ dependencies {
     //字体
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.google.zxing:core:3.2.1'
+    compile project(':zxing-core')
 }
