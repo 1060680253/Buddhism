@@ -70,8 +70,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvFollowersCount"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="-5dp"
-                        android:text="Stars"
+                        android:layout_marginTop="8dp"
+                        android:text="上传"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
                 </RelativeLayout>
@@ -229,8 +229,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvRepoCount"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="-5dp"
-                        android:text="Repository"
+                        android:layout_marginTop="8dp"
+                        android:text="分享"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
                 </RelativeLayout>
