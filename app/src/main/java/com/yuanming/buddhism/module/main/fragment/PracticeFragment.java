@@ -8,6 +8,8 @@ import android.view.View;
 import com.yuanming.buddhism.R;
 import com.yuanming.buddhism.base.BaseFragment;
 import com.yuanming.buddhism.entity.MsgEvent;
+import com.yuanming.buddhism.module.main.activity.CommonActivity;
+import com.yuanming.buddhism.module.main.activity.CommonPage;
 import com.yuanming.buddhism.widget.VerticalViewPager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -35,6 +37,7 @@ public class PracticeFragment extends BaseFragment {
     }
     @OnClick(R.id.iv_partice)
     public void onClick() {
+        CommonActivity.startActivity(mView.getContext(), CommonPage.COPYSCRIPTURE);
     }
     @Override
     protected int getLayoutId() {

@@ -17,6 +17,10 @@
         <item name="contentInsetEnd">0dp</item>
     </style>
 
+    <style name="TextAppearance.FontPath" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/copytext.ttf</item></style>
+
     <style name="dialog_waiting" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@drawable/my_background</item>
     </style>

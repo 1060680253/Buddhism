@@ -1,6 +1,7 @@
 package com.yuanming.buddhism.module.main.activity;
 
 import com.yuanming.buddhism.R;
+import com.yuanming.buddhism.module.finding.fragment.CopyScriptureFragment;
 import com.yuanming.buddhism.module.main.fragment.MainFragment;
 import com.yuanming.buddhism.module.mine.fragment.ActivityFragment;
 import com.yuanming.buddhism.module.mine.fragment.CollapseFragment;
@@ -31,7 +32,8 @@ public enum CommonPage {
     MYMSGS(8, R.string.actionbar_title_msgs, MsgsFragment.class),
     MYTHINGS(9, R.string.actionbar_title_things, ThingsFragment.class),
     MYACTIVITY(10, R.string.actionbar_title_things, ActivityFragment.class),
-    MAIN(11, R.string.actionbar_title_things, MainFragment.class);
+    MAIN(11, R.string.actionbar_title_things, MainFragment.class),
+    COPYSCRIPTURE(12, R.string.actionbar_title_things, CopyScriptureFragment.class);
 
     private int title;
     private Class<?> clz;
