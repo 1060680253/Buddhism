@@ -18,8 +18,9 @@
             <TextView
                 style="@style/wrap_wrap"
                 android:layout_centerVertical="true"
+                android:textAppearance="@style/TextAppearance.LobsterFontPath"
                 android:textColor="@color/white"
-                android:text="掌中佛" />
+                android:text="HandBuddhism" />
 
             <com.yuanming.buddhism.widget.ENSearchView
                 android:id="@+id/search_badge"
