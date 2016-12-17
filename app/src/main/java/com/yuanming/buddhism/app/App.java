@@ -2,7 +2,9 @@ package com.yuanming.buddhism.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.StrictMode;
 
+import com.yuanming.buddhism.BuildConfig;
 import com.yuanming.buddhism.constant.Constants;
 import com.yuanming.buddhism.http.img.PictureLoader;
 import com.yuanming.buddhism.util.SPUtils;
@@ -22,15 +24,14 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-//        if (BuildConfig.DEBUG) {
-//            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-//                    .detectAll() .penaltyLog() .build());
-//            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-//                    .detectAll() .penaltyLog() .build());
-//        }
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectAll() .penaltyLog() .build());
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectAll() .penaltyLog() .build());
+        }
         super.onCreate();
         instance = this;
-//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/PMingLiU.ttf").setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath).build());
         PictureLoader.getInstance().initImageLoader(instance);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/PMingLiU.ttf").setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath).build());
     }

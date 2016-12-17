@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:background="@color/transparent"
     style="@style/fill_wrap">
 
     <LinearLayout
         android:id="@+id/ll_key"
+        android:layout_marginTop="12dp"
         android:weightSum="6"
         android:orientation="horizontal"
         android:gravity="center_horizontal"
@@ -19,7 +23,6 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
 
         <TextView
@@ -31,7 +34,6 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
 
         <TextView
@@ -43,7 +45,6 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
 
         <TextView
@@ -55,7 +56,6 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
 
         <TextView
@@ -67,7 +67,6 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
 
         <TextView
@@ -79,12 +78,12 @@
             android:textStyle="bold"
             android:textColor="@color/import_text"
             android:textSize="32sp"
-            android:text="力"
             android:maxEms="1" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_value"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/ll_key"
         android:weightSum="6"
         android:orientation="horizontal"
@@ -97,11 +96,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -116,11 +114,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value_1"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -136,11 +133,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value_2"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -156,11 +152,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value_3"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -176,11 +171,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value_4"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -196,11 +190,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/et_value_5"
                 android:maxEms="1"
                 android:maxLength="1"
-                android:layout_marginTop="12dp"
                 android:textSize="28sp"
                 android:gravity="center"
                 android:textColor="@color/import_text"
@@ -211,17 +204,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/et_input"
-        android:maxLength="6"
-        android:maxEms="6"
-        android:background="@drawable/search_line"
-        android:textCursorDrawable="@drawable/et_cursor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/transparent"
-        android:layout_alignTop="@+id/ll_value"
-        android:layout_alignBottom="@+id/ll_value" />
 
 </RelativeLayout>

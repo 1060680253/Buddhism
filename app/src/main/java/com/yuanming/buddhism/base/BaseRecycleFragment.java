@@ -84,10 +84,9 @@ public abstract class BaseRecycleFragment
 //        CustomPtrHeader header = new CustomPtrHeader(view.getContext(),1);
 //        mSwipeRefreshLayout.setHeaderView(header);
 //        mSwipeRefreshLayout.addPtrUIHandler(header);
-        mSwipeRefreshLayout.setEnabled(false);
-        if(isNeedRefresh()){
-            mSwipeRefreshLayout.setEnabled(true);
-        }
+
+        mSwipeRefreshLayout.setEnabled(isNeedRefresh());
+
         mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
             @Override
@@ -256,7 +255,6 @@ public abstract class BaseRecycleFragment
      */
     private void setSwipeRefreshLoadingState() {
         if (mSwipeRefreshLayout != null) {
-//            mSwipeRefreshLayout.refreshComplete();
             mSwipeRefreshLayout.setRefreshing(false);
             // 防止多次重复刷新
             mSwipeRefreshLayout.setEnabled(false);
@@ -270,7 +268,7 @@ public abstract class BaseRecycleFragment
         if (mSwipeRefreshLayout != null) {
 //            mSwipeRefreshLayout.refreshComplete();
             mSwipeRefreshLayout.setRefreshing(false);
-            mSwipeRefreshLayout.setEnabled(true);
+            mSwipeRefreshLayout.setEnabled(isNeedRefresh()&&true);
         }
     }
 
